@@ -6,6 +6,22 @@
 %s is used for str(0) that is string representaion of object diaply it is a readble form 
 %r is uded for repr(0) that is canonical representaion of object display that is if it is passed as an argument to eval function then it can executed as code. This gives out a format which can be run, not intrested in readable format as str(0) above.
 
+Take an example of this 
+	formatter = "%r %r %r %r"
+
+	print formatter % (
+	" I had this thing.".
+	" That you could type up right.",
+	" But it didn't sing.",
+	" So i said goodnight."
+	)
+This thing prints
+
+	'I had this thing.' 'That you could type up right.' "But it didn't sing."
+ 'So I said goodnight.'
+
+That is beacuse python when using % prints in such a manner that is most efficient not replicate your way.
+
 #### use of ** and * in arguments while declarinf functions
 
 * indicates that the number of input to the function is variabe where as ** indicates that the multiple input will be a key value pair.
@@ -101,6 +117,5 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 	>>> Thread regsiter state
 	>>> Parent process pointer
 
-	When there is a common resource accessed by two different threads at the 	same time this can lead to race condition. Causing conflicting or unexcp	ected values of global variables. This is countered by using locks which 	prevent the acccess of resource. The locks can be of two types blocking 	or non blocking.
-	For further reading <a href="https://www.geeksforgeeks.org/multithreading-python-set-1/">Visit this </a>
-		
+	at times it could happen that two threads are using the same resourc	    e which can cause a condition of racing and problems in the output
+	unpredicted outputs.		
