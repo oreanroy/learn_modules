@@ -118,4 +118,33 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 	>>> Parent process pointer
 
 	at times it could happen that two threads are using the same resourc	    e which can cause a condition of racing and problems in the output
-	unpredicted outputs.		
+	unpredicted outputs. In such a scenario locks are induced. Locks can
+	be either blocking or non blocking. When a blocking lock is called 
+	it prevents other functions from acessing the resource util the lock is
+	released. 
+	<a href="https://www.geeksforgeeks.org/multithreading-python-set-1/">Read more here</a>	
+
+
+### classes in python 
+	class MyClass:
+		x = 5
+	
+	//making object
+	p1 = MyClass()
+	print(p1.x)  //acessing the properties of class
+
+	### __init__() function
+	__init__() function is like the constructor in java and used to initiali	ze the variables. It is always executed when the class is initiated.
+	
+	class Person:
+		def __init__(self, name, age):
+			self.name = name
+			self.age = age
+
+		def myfucnc(self):
+			print("Hello my name is" + self.name)
+
+	p1 = Person("John", 36)
+	p1.myfunc()
+
+	### the self keyword is the refrence to the current instance of the clas	s you can name it anything.
