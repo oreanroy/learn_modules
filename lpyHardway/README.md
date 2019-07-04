@@ -125,7 +125,9 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 	<a href="https://www.geeksforgeeks.org/multithreading-python-set-1/">Read more here</a>	
 
 
-### classes in python 
+### classes in python
+### When to use classes, when you want to create other with similar properties a### and variables
+ 
 	class MyClass:
 		x = 5
 	
@@ -147,4 +149,25 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 	p1 = Person("John", 36)
 	p1.myfunc()
 
-	### the self keyword is the refrence to the current instance of the clas	s you can name it anything.
+	### the self keyword is the refrence to the current instance of the clas	s you can name it anything. 
+
+### self keyword
+	The self keyword is used to create a dummy(temporary) instance of object 	and then innitialize it to the created object. It is also used to assign 	values to variables.
+
+### Inheritance in python
+	
+	class Person:
+		def __init__(self, fname, lname):
+			self.firstname = fname
+			self.lastname = lname
+
+		def printname(self):	
+			print (self.firstname, self.lastname)
+
+	class Student(Person):
+		def __init__(self, fname, lname):
+			person.__init__(self, fname, lname)
+
+	x = Student("john", 'doe")
+	x.printname()
+
