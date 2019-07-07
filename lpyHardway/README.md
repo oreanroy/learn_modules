@@ -151,6 +151,65 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 
 	### the self keyword is the refrence to the current instance of the clas	s you can name it anything. 
 
+
+### functions as first class objects
+
+	Everything in python is an object, including functiions. hence function 	can
+	>> have types
+	>> can be sent as arguments to another function
+	>> can be used in expression
+	>> can become part of various data structures like dictonaries
+
+	### sending as arguments to another function
+
+	def apply(L, F)
+		result = []
+		for i in range(len(L)):
+			result.append(f(L[i]))
+		
+		return result
+
+	L = [1, -2, -5, 6.3]
+	print apply(L, abs)
+	# [1, 2, 5, 6.3]
+
+	### Function as elements of a list
+
+	def apply_func(L, X):
+		result = []
+		for f in L:
+			result.append(f(x))
+		return result
+
+	function_list = [abs, exp, int]
+	print apply_func(function_list, -2.3)
+	# [2.3, 0.10025884, -2]
+
+
+	### functions can be assigned to other variables
+	
+	i = abs
+	print(i(-2))
+	# 2
+	
+	### objects as functions
+
+	this can be done by defining a call function inside the object
+	
+	class Printer:
+		def __init__(self, s):
+			self.string = s
+
+		def __call__(self):
+			print(self.string)
+
+	s1 = Printer("hello") #defining the object
+	# calling object s1
+	s1() # Hello
+	
+	<a href="https://medium.com/python-pandemonium/function-as-objects-in-python-d5215e6d1b0d">link source </a>
+
+
 ### self keyword
 	The self keyword is used to create a dummy(temporary) instance of object 	and then innitialize it to the created object. It is also used to assign 	values to variables.
 
