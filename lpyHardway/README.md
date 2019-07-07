@@ -124,6 +124,17 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 	released. 
 	<a href="https://www.geeksforgeeks.org/multithreading-python-set-1/">Read more here</a>	
 
+### Terminologies
+	class    ---  tell python to make a new kind of thing
+	object   --- basic kind of thing, instance of something
+	instance --- what you get when you tell to create a class
+	def      --- to define a fucntion inside a class
+	self     --- variable inside a class of the instance which is being acce		     ssed
+	inheritnace --- concept one class can inherit traits from another class
+	composition --- class can be formed from composition of other class
+	attribute   --- properties classes have usually variables
+	is-a        --- phrase to say something inherits from another, eg, salmo			n is-a fish
+	has-a       --- something is composed of other thing, eg, salmon has-a m			outh
 
 ### classes in python
 ### When to use classes, when you want to create other with similar properties a### and variables
@@ -212,6 +223,11 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 
 ### self keyword
 	The self keyword is used to create a dummy(temporary) instance of object 	and then innitialize it to the created object. It is also used to assign 	values to variables.
+	
+	why do we need self when we have __init__
+	cheese = 'Frank' is ambiguous weahter you mean the local variable cheese
+	or instance of cheese. self.cheese = 'Frank' makes it clear that its a i	instance atribute
+
 
 ### Inheritance in python
 	
