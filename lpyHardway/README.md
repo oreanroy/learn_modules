@@ -228,6 +228,32 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 	cheese = 'Frank' is ambiguous weahter you mean the local variable cheese
 	or instance of cheese. self.cheese = 'Frank' makes it clear that its a i	instance atribute
 
+### playing with self
+	the self keyword takes the insatnce of object which is being created at 	that moment
+	test1 = Test()
+	test2 = Test()
+	when these two objects are created of Test class the self in first will have test1 while i	  n second test2 as reference. 
+
+	Take a look at the below code 
+
+	class test():
+		def __init__(self, word):
+			self.word = word
+			print(self)
+			print(dir(self)
+			print(self.word)
+
+	test1 = test("a test")
+	test2 = test("another tets")
+
+	this produces an output
+ 
+	<__main__.test instance at 0x7f3a22ae3680>
+	['__doc__', '__init__', '__module__', 'word']
+	a test
+	<__main__.test instance at 0x7f3a22ae36c8>
+	['__doc__', '__init__', '__module__', 'word']
+	another test
 
 ### Inheritance in python
 	
