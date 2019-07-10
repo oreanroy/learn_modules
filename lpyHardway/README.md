@@ -162,6 +162,15 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 
 	### the self keyword is the refrence to the current instance of the clas	s you can name it anything. 
 
+### Why to use object as inherited name while creating class
+	python's originam redition of class was broken in many serious
+	ways hence in oder to fix it they needed new class style which inherits
+	from base class named object to make a class.
+	
+	class person(object):
+		def __init__(self, name):
+			self.name = name
+	
 
 ### functions as first class objects
 
