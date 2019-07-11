@@ -137,7 +137,49 @@ The course structure
 		
 		<div class='app-servers></div>			
 	
+## Databinding 
+		
+	The communication between the typescript and template is where data binding comes
+	into play.
+
+	|--              --|  --------(output data)----------->>       |--            --|
+	|		   |  String interpolation( {{ data }} )       |                | 
+	| TypeScript Code  |  Property binding( [property]="data" )    | Template(HTML) |
+	|(Bussiness Logic) |                                           |                |
+	|                  |  <<------(React to User Events)----       |                |
+	|                  |  Event Binding( (event)="expression")     |                |
+	|--              --|                                           |--            --|
+
+	         Combination of Both Two-Way-Binding( [(ngModel)]="data")
+
+	# string interpolation
+	Anything that returns a string can be used in between the curly  brackets
+	{{ 'Server' }} or {{ serverId }} you can also call a funtion which return 
+	string.
+
+
+	databinding example as string interpolation
+	you need to pass the variable in export class
+	
+	export class ServersComponent implements OnInit {
+  	allowNewServer = false;
+  	constructor() {
+    	setTimeout(() => {
+      		this.allowNewServer = true;
+    	}, 2000)
+   	}
+  	ngOnInit() {
+  	}
+
+	now you can use this variable in the html template
+	<button 
+	class="btn btn-primary" 
+	[disabled]="!allowNewServer">Add Server</button>
+	<app-server></app-server>
+	<app-server></app-server>
+	you are using the allowserver in html template now you can also set the html
+	property [disabled] to allowNewServer.
 
 
 
-
+	
