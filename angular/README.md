@@ -46,3 +46,98 @@ The course structure
 	main.ts >> AppModule(to boostrapModule func) >> app.module(file) >> (this file has
 	a boostrap array which has list of all the components angular should know at time 
 	of initializing index.html) >> AppComponent
+
+# Components
+	The building blocks of angular application, can be reused and have seprate html
+	and css files and bussiness logic.
+	>> the AppComponent is the root component
+		>> The other componets created are not added to index.html but 			   app.component.html
+
+	## Creating your first component
+		Components can be created by creating a directory manually in app folder
+		with component name and then defining the name.component.ts file along 
+		with other helper files of name.component.html, name.component.css.
+		Then adding it in declaratives of aap.module.ts and then the selector can
+		be used as html tag in app.component.html
+		
+		app
+		 --server
+		    --server.component.ts
+		    --server.component.html
+		    --server.component.css
+		
+		________________________________________________________________
+
+		server.component.ts
+		import { Component } from '@angular/core';
+
+		@Component({
+		    selector: 'app-server',
+		    templateUrl: './server.component.html'
+		})
+		export class ServerComponent {
+
+		}
+		
+		__________________________________________________________________
+
+		add decalration in app.module.ts
+		
+		
+		@NgModule({
+		  declarations: [
+		    AppComponent,
+		    ServerComponent,
+		    ServersComponent
+		  ],
+		  imports: [
+		    BrowserModule
+		  ],
+		  providers: [],
+		  bootstrap: [AppComponent]
+		})
+		
+		__________________________________________________________________
+
+		This can also be done using ng generate component servers
+		command, use the command ng g c servers this is the preferable
+		method and must be used run the above command in folder where
+		you wana create the component.
+
+		## Adding styles to component
+		Styles can be added to the component using the styleUrls giving link
+		to the style sheet. Multiple stylesheets can be added through this.
+		The styles can also be added using the simple 
+		styles: [`
+			h3 {
+				color: blue;
+				}			
+			`]
+		this give a inline styling will have higher prefernce.
+
+		## compoent selector as attribute
+ 
+		the component can be defined as attribute by adding square brackets
+		
+		
+		@Component({
+		  selector: '[app-servers]',
+		  templateUrl: './servers.component.html',
+		  styleUrls: ['./servers.component.css']
+		})
+		
+		in this case you cannot use it as a html component you will have to 
+		use it as an attribute. that is.
+		<div app-servers></div>
+	
+		## compoent selector as class
+		
+		the componet can be defined as class by adding . operator befor the 
+		name that is .app-servers
+		
+		<div class='app-servers></div>			
+	
+
+
+
+
