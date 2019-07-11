@@ -1,1 +1,33 @@
 angular/my-first-app/node_modules
+angular/assignment-app/node_modules
+
+### Angular ###
+## Angular ##
+# compiled output
+angular/**/dist
+angular/**/tmp
+angular/**/app/**/*.js
+angular/**/app/**/*.js.map
+
+# dependencies
+angular/*/node_modules
+angular/*/bower_components
+
+# IDEs and editors
+angular/*/.idea
+
+# misc
+angular/*/.sass-cache
+angular/*/connect.lock
+angular/*/coverage/*
+angular/*/libpeerconnection.log
+angular/*npm-debug.log
+angular/*testem.log
+angular/*/typings
+
+# e2e
+angular/*/e2e/*.js
+angular/*/e2e/*.map
+
+#System Files
+angular/*/.DS_Store
