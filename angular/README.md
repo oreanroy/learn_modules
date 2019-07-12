@@ -179,6 +179,9 @@ The course structure
 	<app-server></app-server>
 	you are using the allowserver in html template now you can also set the html
 	property [disabled] to allowNewServer.
+	
+	any function that you put in the export class can be accessed in the html template
+	that is event binding for you
 
 
 
