@@ -1,0 +1,10 @@
+<input [(ngModel)]='username'>
+<p>{{ username }}</p>
+<button [disabled]="!username.length>0"
+(click)="reset()">
+Click Me
+
+</button>
+
+<p>{{ username.length }}</p>
+<p>{{ username.length>0 }}</p>
