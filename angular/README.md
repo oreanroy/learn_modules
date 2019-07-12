@@ -183,6 +183,79 @@ The course structure
 	any function that you put in the export class can be accessed in the html template
 	that is event binding for you
 
+	# From Component to view
 
+	@Component({
+	  selector: 'app-example',
+	  template: `
+	              <div>
+		        <strong>{{firstName}}</strong>
+		        <strong>{{lastName}}</strong>
+                      </div>
+		    `
+	})
+	
+	export class AppComponent {
+	  firstName: string = "Yallaling";
+	  lastName: string = "Goudar";
+	}
+	
+	above was an example of interpolation
+
+	now take in consideration property binding
+	
+	import { Component } from "@angular/core";
+	@Component({
+	  selector: 'app-example',
+	  template: `
+	              <div>
+                      <span [innerHTML]='firstName'></span>
+	              </div>
+		    `
+	})
+	export class AppComponent {
+	  firstName: string = "Yallaing";
+	}
+
+	There can be style, class or attribute binding in similar way
+	<h1 [style.color]="blue">This is a Blue Heading</h1> //style binding
+
+	# From view to Component
+	
+	<button (click)="myFunction()">Show alert</button>
+
+	import { Component } from "@angular/core";
+	@Component({
+	  selctor: 'app-example',
+	  template: `<button (click)='myFunction()' >Show alert</button>
+	})
+	export class AppComponent {
+	  myFunction(): void {
+	  	alert("show alert!"):
+	  }
+	}
+
+	# Two way data binding
+	
+	The two way data binding helps exchange data from component to view and
+	view to component. It is acheived using (ngModel) directive which is a 
+	combination of both square bracket property binding and parentheses of 
+	event binding. for using this u need to import Forms module.
+	
+	import { Component } from '@angular/core';
+	@Component({
+	  selector: 'app-example',
+	  template: `
+	              Enter the value : <input [(ngModel)] = 'val'>
+		      <br>
+	                Entered value is: {{val}}
+		     `
+	})
+	export class AppComponent {
+	  val: string = '';
+	}
+	
+
+	
 
 	
