@@ -4,8 +4,7 @@
 	enter the mysql password
 	
 	stopping the mysql server
-	service mysqld stop
-
+	service mysqld st
 # Sql terminal commands
 
 	show databases;
@@ -23,4 +22,7 @@
 
 	drop database databasename;
 		deletes a database completely
+
+	update user set password_hash = 'value';
+		updates a row entry in datatbase
 
