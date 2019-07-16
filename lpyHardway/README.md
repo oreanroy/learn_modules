@@ -281,3 +281,5 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 	x = Student("john", 'doe")
 	x.printname()
 
+
+### Build in functions in python 
