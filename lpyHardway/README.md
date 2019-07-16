@@ -283,3 +283,12 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 
 
 ### Build in functions in python 
+
+
+### Property keyword in pyhton
+	The property keyword is used in classes modifcation in such a manner that 
+	if the class needs to be updated for further requirements. The multiple users 
+	who have inherited from the class need not to make cahnges in the code 
+	that they are using at the present moment.
+
+	
