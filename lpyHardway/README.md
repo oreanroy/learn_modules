@@ -281,6 +281,13 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 	x = Student("john", 'doe")
 	x.printname()
 
+### Dealing with classes and object design
+	
+	write or draw about plroblem
+	extract key concepts from 1
+	create class hierarchy and object map of concepts
+	code the classes and a test to run them
+	repeat and refine
 
 ### Build in functions in python 
 

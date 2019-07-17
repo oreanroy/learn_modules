@@ -25,4 +25,7 @@
 
 	update user set password_hash = 'value';
 		updates a row entry in datatbase
+	
+	select * from tablename;
+		show all entries in an table
 
