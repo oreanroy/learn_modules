@@ -137,7 +137,7 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 	has-a       --- something is composed of other thing, eg, salmon has-a m			outh
 
 ### classes in python
-### When to use classes, when you want to create other with similar properties a### and variables
+### When to use classes, when you want to create other with similar properties and variables
  
 	class MyClass:
 		x = 5
@@ -162,6 +162,9 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 
 	### the self keyword is the refrence to the current instance of the clas	s you can name it anything. 
 
+
+### The object in class dmystified
+
 ### Why to use object as inherited name while creating class
 	python's originam redition of class was broken in many serious
 	ways hence in oder to fix it they needed new class style which inherits
@@ -170,7 +173,37 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 	class person(object):
 		def __init__(self, name):
 			self.name = name
+
+	Pyhton 2 and earlier
+		if you do not mention object then it will be old classes
+		and if you mention object explicitly it will be new classes
+		the improve done
+	pyhton 3 
+		you don't need to write it will explicitly inherit from object
+
+	OLD MRO and new MRO alogorithm
+
+		Old Classes			New Classes
+		
+		class A:                      class A(object):
+		  pass                           pass
+		class B:                      class B(object):
+		  pass                           pass
+		class C(A, B):
+		  pass
 	
+	dosen't inherit from python        First parent inherits from python
+        root objeect class                 root object class
+	
+	uses the old MRO algo              uses new mro algorithm
+	                                    
+                                           introduced in pyhton 2.3
+
+	The old mro was monotonic that is the mro of subclass were extensio of the 
+	mros of the superclass without re-odering
+
+	the old mro is based on DLR deep first from, left to right. The new mro is 
+	based on c3serialization algorithm 
 
 ### functions as first class objects
 
