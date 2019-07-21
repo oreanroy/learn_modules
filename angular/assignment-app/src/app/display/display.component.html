@@ -1,0 +1,19 @@
+<p [ngStyle]="{display: show}">display works!</p>
+
+
+
+<button [disabled]="!username.length>0"
+    (click)="getDisplay()">
+    Diaplay Details
+</button>
+
+<h3></h3>
+
+
+<button [disabled]="!username.length>0"
+    (click)="buttonClick()">
+    increase count
+</button>
+<div *ngFor="let n of range">
+    <p [ngClass]="{blue: n>=5 }">{{n}}</p>
+  </div>
