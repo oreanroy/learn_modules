@@ -254,7 +254,67 @@ The course structure
 	export class AppComponent {
 	  val: string = '';
 	}
+
+## Directives
+
+	Directives are instructions in the DOM(Document Object Model). Like when you
+	use the selector of component to replace it with component template when html 
+	is rendered you are giving an instruction to replace this place/object with 
+	template of that component. Hence components are directives with templates
+	there are other kind of directives too, pre build or self defined. 
 	
+	<p appTurnGreen>Recives a green backgroud!</p>
+
+	@Directives({
+		selector: '[appTurnGreen]'
+	})
+	export class TurnGreenDirective {
+		----
+	}
+
+	The above is an example of self defined directive.	
+	
+	<p *ngIf="ServerCreated">Server was created, {{ serverName }}</p>
+	
+	This is an example of pre build directive and the * at the starting indicate
+	that this is a strcutural directive. That is it will make changes to the DOM 
+	structure.
+
+	<p *ngIf="serverCreated; else noServer">Server was created, server name is 		{{ serverName }}</p>
+	<ng-template #noServer>
+    		<p>No server was created.</p>
+	</ng-template>
+
+	that's ngIf with an else statement and use of local marker shown there. The
+	#noServer is the local marker which will is rendered in else case.
+
+	### ngStyle
+	
+	it is a attribute directory that is it can be used to change the attribute 
+	of a dom element
+
+	
+ 	<h1 [ngStyle]="{backgroundColor: getColor()}"> {{ 'Server' }} with ID {{ serverId }} 		is {{ serverStatus }} </h1>
+
+	you can write a getColor() function in export of the same component 
+
+	### ngClass
+
+	<h1 [ngStyle]="{backgroundColor: getColor()}" [ngClass]="{online: serverStatus === 		'online'}"> {{ 'Server' }} with ID {{ serverId }} is {{ serverStatus }} </h1>
+
+	this will associate the styles associated with class online to the h1 element
+	when online condition is sattisfied
+
+	### ngFor
+	
+	<app-server *ngFor="let server of servers"></app-server>
+	
+	this will loop over the elements in servers and pass the server in the template
+	
+
+
+	
+
 
 	
 
