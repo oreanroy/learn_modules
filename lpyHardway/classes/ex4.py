@@ -10,11 +10,14 @@ class Scene(object):
 class Engine(object):
 	def __init__(self, scene_map):
 		self.scene_map = scene_map
+
 	def play(self):
+		#print self.scene_map
 		current_scene = self.scene_map.opening_scene()
 		
 		while True:
 			print "\n--------"
+			print current_scene
 			next_scene_name = current_scene.enter()
 			current_scene = self.scene_map.next_scene(next_scene_name)
 class Death(Scene):
@@ -106,7 +109,7 @@ class LaserWeaponArmory(Scene):
 			print " ship from their ship you die."
 			return 'death'
 	
-class TheBridge(scene):
+class TheBridge(Scene):
 	
 	def enter(self):
 		print "You burst into the bridge with neutron destruct bomb"
@@ -121,7 +124,8 @@ class TheBridge(scene):
 		if action == "throw the bomb":
 			print "In a panic you throw the bomb at the group of Gothons"
 			print "and make a leap for the door. RIght as you drop it a"
-			print "Gothom shoots you right in the back killing you"				print "as you die see another Gothon Frantically try to disarm"
+			print "Gothom shoots you right in the back killing you"				
+			print "as you die see another Gothon Frantically try to disarm"
 			print "the bomb. You die knowing they will probaly blow up when"
 			print "It goes off."
 			return 'death'
@@ -163,24 +167,28 @@ class EscapePod(Scene):
 
 class Map(object):
 	
-	scenes = [
+	scenes = {
 		'central_corridor': CentralCorridor(),
 		'laser_weapon_armory': LaserWeaponArmory(),
 		'the_bridge': TheBridge(),
 		'escape_pod': EscapePod(),
 		'death': Death()
-	]
+		}
 	
 	def __init__(self, start_scene):
 		self.start_scene = start_scene
 
 	def next_scene(self, scene_name):
+		print "This is inside next_scene"
+		print Map.scenes.get('the_bridge')
+		print Map.scenes.get(scene_name)
 		return Map.scenes.get(scene_name)
 
 	def opening_scene(self):
+		print self.start_scene
 		return self.next_scene(self.start_scene)
 
 	
-a_map = Map('Central_corridor')
+a_map = Map('central_corridor')
 a_game = Engine(a_map)
 a_game.play()
