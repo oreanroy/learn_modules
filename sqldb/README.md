@@ -29,3 +29,8 @@
 	select * from tablename;
 		show all entries in an table
 
+
+## SQLAlchemy ORM
+	The SQLAlchemy interacts with the database using the session object. Session object 
+	wraps the database connection and transaction. Transaction implicitly starts as soon
+	as the session starts communicating.
