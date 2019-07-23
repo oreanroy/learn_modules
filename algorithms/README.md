@@ -111,6 +111,59 @@
 	L[B] = B+D+E+O and that's complete
 
 
+## The CYK Algorithm
+
+	formal language
+
+	A formal language over an alphabet Σ is a subset of Σ, that is a set words over that
+	alphabet. The sets of words maybe grouped into expressions, and further rules and 
+	constraints may be formulated for creation of "well-formed expressions."
+
+	Take this example
+	
+	The following rules describe a formal language L over the alphabet Σ = {0, 1, 2, 3, 4
+	5, 6, 7, 8, 9, +, =}
+
+		> every nonempty string that does not contain "+" or "=" and does not start
+		  with "0" in L.
+		> The string "0" is in L
+		> A string containing "=" is in L if and only if there is exactly one "=",
+		  and it seprates two valid strings of L.
+		> A string containing "+" but not "=" is in L if and only if every "+" in the
+		  string seprates two valid string of l
+		> No string in L other than those implied by previous rules
+
+	Context Free Grammar
+			
+	In formal language theory, a context free grammar is a certain type of formal
+	grammar: set of production rules that describes all possible strings in a given
+	language.
+	
+	context free grammar are used to allow the construction of efficient parsing
+	algorithms that. That for a given string determine weather and how it can 
+	be generated from grammar.
+
+	terminal symbol 
+		symbols which cannot be further replaced by something
+	nonterminal symbol
+		symbols which can be further replaced by somthing
+	
+	eg  
+		S-> a
+		S-> Sb
+		S can be replaced by a or Sb, that is S is non terminal
+		while a is terminal
+
+	Context-Free grammar are those grammars in which the left-hand side of each
+	production rule consists of only single nonterminal symbol.
+
+	
+	
+
+
+	
+
+
 
 
 

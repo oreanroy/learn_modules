@@ -33,4 +33,5 @@
 ## SQLAlchemy ORM
 	The SQLAlchemy interacts with the database using the session object. Session object 
 	wraps the database connection and transaction. Transaction implicitly starts as soon
-	as the session starts communicating.
+	as the session starts communicating with database and will remsin open untill session
+	is commited, rolled back or closed.
