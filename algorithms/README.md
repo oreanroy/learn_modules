@@ -155,9 +155,24 @@
 		while a is terminal
 
 	Context-Free grammar are those grammars in which the left-hand side of each
-	production rule consists of only single nonterminal symbol.
+	production rule consists of only single nonterminal symbol..
 
 	
+
+	The CYK algorithm is used to verify weather a certain word/string belong to a
+	context free grammar. Or in other words if the string belong to a ceratin language
+	or not. This finds its application in parsers. One condition for its implementaion 
+	is the grammar should be in chomsy normal form. The worst case running time of 
+	CYK is O(n^3) where n is length of parssed string.
+	Which makes it one of the most efficient parsing algo in terms of worst case
+	complexity. It can be implemented using dynamic programming.
+
+	The implementaion invloves constructing a tringular strcture of length n and height
+	n where the each cells are filled from by replacing the different combination of 	 terminal character with non terminal character and if final cell contains the starting
+	character of grammar. The word is part of language or can be obtained from context
+	free grammar. 
+
+	The detailed step by step explation is below
 	
 
 
