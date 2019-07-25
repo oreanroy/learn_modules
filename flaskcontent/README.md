@@ -25,3 +25,29 @@
 	cache-control: no-cache
 	Postman-Token: f964a508-5754-491a-829f-7e5c401d21dc
 	token=eyJhbGciOiJIUzUxMiIsImV4cCI6MTU2MzUxMTM4NCwiaWF0IjoxNTYzNTEwNzg0fQ.eyJpZCI6MX0.Syct_C8x4PD8d-4VJeiqxAWv-X_PTbrV6JzJTZgjryNp9P-UrZYUQYyhzNoVulbtfJZcMPJL71VhRiQjHcj5jgundefined=undefined
+
+
+### flask-restful request parsing
+
+	Flask restful request parisng interface, reparse, is designed to provide simple
+	and uniform access to any variable on the flask.request object in Flask.
+	That is we can access the different varibales, form data, cookies, header etc
+	other things which are passed by the user.
+	
+	from flask_restful import reqparse
+
+	parser = reqparse.RequestParser() //creating an instance of request parser 
+	parser.add_argument('rate', type=int, help='rate cannot be converted') //rate 
+	parser.add_argument('name')
+	args = parser.parse_args()//parsing the request
+
+	now you can access the values 
+	
+	args['rate'] # 56
+	
+	For further understanding the different options availble in this package 
+	check this out https://flask-restful.readthedocs.io/en/0.3.5/reqparse.html 
+
+
+
+	
