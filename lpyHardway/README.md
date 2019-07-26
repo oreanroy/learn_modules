@@ -314,6 +314,166 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 	x = Student("john", 'doe")
 	x.printname()
 
+	inheritance indicates that one class will get most or all of its features from parent class
+	There are noramly three ways in which parent and child class can interact
+		> Action on child imply an action on parent
+			
+			class parent(object):
+				def implicit(self):
+					print "parent implicit()"
+	
+			class Child(Parent):
+				pass
+
+			dad = Parent()
+			son = Child()
+	
+			dad.implicit()
+			son.implicit()
+
+			#parent implicit()
+			#parent implicit()
+		
+		> Actions on the child override the action on the parent
+
+			class Parent(object):
+				def ovveride(self):
+					print "PARENT override()"
+			
+			class Child(Parent):
+				def override(self):
+					print "CHILD ovveride()"
+
+			dad = Parent()
+			son = Child()
+	
+			dad.override()
+			son.override()
+
+			# PARENT override()
+			# CHILD override()
+				
+					
+
+		> Actions on the child alter the action on the parent
+
+			class Parent(object):
+				def altered(self):
+					print "PARENT altered()"
+			
+			class Child(Parent):
+	
+				def altered(self):
+					print "CHILD BEOFRE PARENT altered()"
+					super(Child, slef).altered()
+					print "CHILD, AFTER PARENT altered()"
+		
+			dad = Parent()
+			son = Child()
+	
+			dad.altered()
+			son.altered()
+		
+			# PARENT altered()
+			CHILD, BEFORE PARENT altered()
+			PARENT altered()
+			CHILD, AFTER PARENT altered()
+
+
+	Now you will see composition and inheritane in action and try to understand the difference
+	between the two futher explaintion will be given at the end of the code.
+	
+	class Parent(object)
+		
+		def override(self):
+			print "PARENT override()"
+		
+		def implicit(self):
+			print "PARENT implicit()"
+
+		def altered(self):
+			print "PARENT altered()"
+
+	class Child(Parents):
+		
+		def override(self):	
+			print "CHILD override()"
+		
+		def altered(self):
+			print "CHILD, BEFORE PARENT altered()"
+			super(Child, self).altered()
+			print "CHILD, AFTER PARENT altered()"
+
+		dad = Parent()
+		son = Child()
+
+		dad.implicit()
+		son.implicit()
+	
+		dad.override()
+		son.override()
+	
+		dad.altered()
+		son.altered()
+	
+	this produces an output
+		PARENT implicit()
+		PARENT implicit()
+		PARENT override()
+		CHILD override()
+		PARENT altered()
+		CHILD, BEFORE PARENT altered()
+		PARENT altered()
+		CHILD, AFTER PARENT altered()
+
+	Now see the same thing being implemented using Composition
+		
+		Class Other(object):
+			
+			def override(self):
+				print "OTHER override()"
+			
+			def implicit(self):
+				print "OTHER implicit()"
+			
+			def altered(self):
+				print "OTHER altered()"
+		
+		Class Child(object):
+			
+			def __init__(self):
+				self.other = Other()
+
+			def implicit(self):
+				self.other.implicit()
+	
+			def override(self):
+				print "CHILD override()"
+	
+			def altered(self)
+				print "CHILD, BEFORE OTHER altered()"
+				self.other.altered()
+				print "CHILD, AFTER OTHER altered()"
+
+		son = Child()
+
+		son.implicit()
+		son.override()
+		son.altered()
+
+	this produces an output
+		OTHER implicit()
+		CHILD override()
+		CHILD, BEOFRE OTHER altered()
+		OTHER, altered()
+		CHILD, AFTER OTHER altered() 
+	
+	Note that in composition you have rewrite all the function name unlike inheritance where
+	you don't need to mention the parent class functions unless you want to overide it.
+	Composition is used when you need to package up code into modules that are used in many 
+	different unrelated places and situations.
+
+
 ### Dealing with classes and object design
 	
 	write or draw about plroblem
@@ -325,10 +485,15 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 ### Build in functions in python 
 
 
-### Property keyword in pyhton
+### Property keyword in python
 	The property keyword is used in classes modifcation in such a manner that 
 	if the class needs to be updated for further requirements. The multiple users 
 	who have inherited from the class need not to make cahnges in the code 
 	that they are using at the present moment.
+	
+
+
+
+
 
 	
