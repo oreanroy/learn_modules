@@ -135,7 +135,17 @@ The course structure
 		the componet can be defined as class by adding . operator befor the 
 		name that is .app-servers
 		
-		<div class='app-servers></div>			
+		<div class='app-servers></div>	
+
+		to create a component inside a folder you just need to add path to ng 
+		create something like
+ 
+		ng g c receipes/recipe-detail --spec fail
+	
+		this will form a recipe-detial component inside the recipes folder and the
+		--spec fail prevents creation of testing file
+		
+			
 	
 ## Databinding 
 		
