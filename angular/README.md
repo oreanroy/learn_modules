@@ -36,6 +36,50 @@ The course structure
 	More features than vanila javaScript has classes, interfaces, Types that is you have 
 	to define int string etc, it gets recompiled to javaScript.
 
+	you can create custom classes and export them to other ts files and use as custom
+	data types to shell out objects
+
+	the reipe.modal.ts file	
+
+	export class Recipe {
+	    public name: string;
+	    public description: string;
+	    public imagePath: string;
+
+	    constructor(name: string, description: string, imagePath: string){
+	      this.name = name;
+	      this.description = description;
+	      this.imagePath = imagePath;
+	    }
+	}
+
+	importing it into the component tyscript file and shelling out objects
+
+	import { Recipe } from '../recipe.modal'
+
+	export class RecipeListComponent implements OnInit {
+	  recipes: Recipe[] = [
+	    new Recipe('A test recipe', 'this is simply a discription', 'https://		     images.unsplash.com/photo-1460306855393-0410f61241c7?	ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80')
+	  ];
+
+	  constructor() { }
+
+	  ngOnInit() {
+	  }
+
+	}		
+
+# Source Map
+
+	All the javascrip code is compiled into typescript bundles which can be accessed
+	from the brwoser, when you set break point the exact file opens up rather than
+	the bundle.
+
+# Augury
+	This is a chrome extension which enhances the developer tools for angular application
+	analysis. You can do state analysis, component map, injector graph
+	
+
 # Angular basics
 	The index.html which is created during creating the app by cli is the single page 
 	served by angular.
