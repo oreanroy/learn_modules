@@ -364,7 +364,10 @@ The course structure
 	<app-server *ngFor="let server of servers"></app-server>
 	
 	this will loop over the elements in servers and pass the server in the template
-	
+
+
+# Property and Event Binding
+	passing data between components is of a concern which can be 
 
 
 	

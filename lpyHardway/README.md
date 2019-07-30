@@ -492,6 +492,74 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 	that they are using at the present moment.
 	
 
+### Advanced pyhton cconstructs, some are unique to language
+
+	Iterators
+	
+	an iterator is an object adhering to iterator protocol, which means
+	it has a next method. which when calle returns the next method. when the itertable
+	objects are finished the stopIteration exception is raised.
+
+	nums = [1, 2, 3, 4]
+	it = iter(nums)
+	next(it)
+	1
+	next(it)
+	2
+	next(it)
+	3
+	next(it)
+	4
+	next(it)
+	Taceback StopIteration exception raised
+	
+
+	Generator expression
+
+	Iterator objects are created through generator expressions, generator expression
+	should be enclosed in parenthesis or an expression
+	They are mostly used for list comprehensions
+
+	{i for i in range(3)}
+	set([0, 1, 2])
+	{i:i**2 for i in range(3)}
+	{0: 0, 1: 1, 2: 4}
+
+	Generator
+
+	A gnerator is a fucntion containig keyword yield, unlilke normal function the code inside
+	the function body does not get executed when function is called.
+	Rather a generator object is created and when next is called on this generator object
+	the code uptill the first yield statement is executed.
+	Similary when next is called next time the code between the first and second yield
+	statement is executed.
+	uptill the stopIteration exception is raised
+
+
+	def f():
+		print ("---start---")
+	yield 3
+		print ("--middle--")
+	yield 4 
+		print ("-- finished --")
+
+	gen = f()
+	next(gen)
+	--start--
+	3
+	next(gen)
+	--middle--
+	4
+	next(gen)
+	--finished--
+	Traceback (most recent call last):
+	...
+	StopIteration
+
+	Bidirectional 
+
+	
+
 
 
 

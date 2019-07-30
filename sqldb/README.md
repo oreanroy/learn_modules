@@ -7,8 +7,11 @@
 	service mysqld st
 # Sql terminal commands
 
+
 	show databases;
 		to show all databases
+	create database labs;
+		to create a database called labs;
 	 user labs;
 		the table name
 	show tables;
