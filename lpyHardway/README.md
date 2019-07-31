@@ -593,7 +593,42 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 	// yield are to be executed that is first the else case as no exception is encountered
 	// and then the when we call the next(it) next time the yield gets executed and as nothing 		// is passed to yield the ans stores none which is displayed by the else statement and
 	// then the staments utpill yield is executed
+
 	
+	## decorators in python
+	
+	Decorators is a special feature in python which allow to modify function defined earlier
+	It is mainly used to add more functionality to already available function. It takes in a 
+	function as argument and returns as modified version of it.
+
+	def hello_decorator(func):
+		def inner1():
+			print("now i can also print this")
+			func()
+		return inner1
+	def funct():
+		print ("earlier i could only do this")
+
+	funct()
+	# earlier i could only do this
+	funct = hello_decorator(funct)
+	funct()
+	# now i can also print this
+	# earlier i could only do this
+
+	this can also be implemented using the @ decorator syntax
+
+	@hello_decorator
+	def test():
+		print(" i am soo simple don't kill me")
+	
+	test()
+	# now i can also print this
+	# i am soo simple don't kill me
+
+	
+
+
 
  
 
