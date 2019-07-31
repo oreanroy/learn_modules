@@ -556,7 +556,46 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 	...
 	StopIteration
 
-	Bidirectional 
+	Bidirectional communication
+	The old yield statement that you used earlier can also be made to pass an argument to 
+	by user for two way communicaton and implementation in certain scenarios
+	
+	take the below code example for better understanding
+
+	import itertools
+	def g():
+		print ('--start--')
+		for i in itertools.count():
+			print('--yielding %i--' % i)
+			try:
+				ans = yield i
+			except GeneratorExit:
+				print('--closing--')
+				raise
+			except Eception as e:
+				print('--yield raised %r--' % e)
+			else:
+				print('--yield returned %s--' % ans)
+
+
+	Now have a look at the way this function is being called
+
+	it = g()
+	next(it)
+	--start--
+	--yileding 0--
+
+	next(it)
+	--yield returned None--
+	--yielding 1--
+
+	// the above output happens beacuse when we call the next statement the statements uptill
+	// yield are to be executed that is first the else case as no exception is encountered
+	// and then the when we call the next(it) next time the yield gets executed and as nothing 		// is passed to yield the ans stores none which is displayed by the else statement and
+	// then the staments utpill yield is executed
+	
+
+ 
 
 	
 
