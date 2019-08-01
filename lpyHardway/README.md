@@ -625,9 +625,44 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 	test()
 	# now i can also print this
 	# i am soo simple don't kill me
-
 	
 
+	## Context Managers in python
+	
+
+	Context mangers is protocol defined in pyhton which provides a warpping around the
+	boring syntax of try catch block which can be put inside a seprate function and then
+	this function can be called on a resource with the (with) statement to use the context 
+	in a much simpler manner. Yeah that could have been difficult to understand view the code 
+	snippet below to get a better understanding
+	
+	class MessageWriter(object):
+		def __init__(self, file_name):
+			self.file_name = file_name
+	
+		def __enter__(self):
+			self.file = open(self.file_name, 'w')
+			return self.file
+		
+		def __exit__(self):	
+			self.file.close()
+	
+	# using wiht statement
+	
+	with MessageWriter('my_file.txt') as xfile:
+		xfile.write('hello world')
+	
+	After the with keyword there is intance of class created. As soon as the execution enters 
+	the context of with the __enter__() is executed which returns the open file stream as xfile
+	now the staments inside the context of with are executed and as soon as the execution of 
+	those statemnets is complete the __exit__() method is called which closes the resource
+ 	If any exception ocuurs while the execution in __enter__() the error is passed on to
+	__exit__() and the context closes without executing the code inside the with context
+	
+	for futher reading go through these
+
+	https://www.geeksforgeeks.org/with-statement-in-python/
+	https://scipy-lectures.org/advanced/advanced_python/index.html
 
 
  
