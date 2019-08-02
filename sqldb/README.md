@@ -38,3 +38,12 @@
 	wraps the database connection and transaction. Transaction implicitly starts as soon
 	as the session starts communicating with database and will remsin open untill session
 	is commited, rolled back or closed.
+
+## Lazy load
+	When loading data from a database into memory it's handy to design things so that you load
+	an object of intrest and also the objects realated to it. This might come handy at time 
+	but can also become cubersome and time consuming. So an object with the same interface 
+	with the original is loaded which fields can contain value(real) or be empty and contain 
+	a marker to to getValue to get value from real object. This saves time and can create a 
+	win win situation if certain fileds which are not loaded are never accessed. That's lazy 
+	loading.
