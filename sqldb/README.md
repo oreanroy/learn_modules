@@ -7,15 +7,40 @@
 	service mysqld st
 # Sql terminal commands
 
+	-- comment 
+		-- is how you comment in sql 
 
 	show databases;
 		to show all databases
+
 	create database labs;
 		to create a database called labs;
-	 user labs;
-		the table name
+
+	use labs;
+		to use that databse;
+
+	CREATE TABLE student (
+		student_id INT PRIMARY KEY,
+		name VARCHAR(20) NOT NULL,
+		major VARCHAR(20) UNIQUE
+	);
+		to create a table name student with those column fields
+
+	UPDATE student set major = 'Bio' WHERE major = 'Biology';
+		change the major value to Bio which has Biology as value
+	
+	UPDATE student set major = 'Biochemistry' WHERE major = 'Bio' OR major = 'chemistry';
+		you can also use or to check multiple thing	
+			
+	ALTER TABLE student ADD gpa DECIMAL(3, 2);
+		to alter a present table and add a new column(decimal) field to it.
+
+	DESCRIBE student;
+		to get the detailed view of table 
+
 	show tables;
 		to show all tables in the database
+
 	show columns from user;
 		to show all columns of the user table;
 	
@@ -31,6 +56,18 @@
 	
 	select * from tablename;
 		show all entries in an table
+	
+	SELECT name, major FROM student;
+		selects name and major columns from student.
+
+	SELECT name, major FROM student ORDER BY name;
+		selects name and major and orders them by name ascending.
+
+	SELECT * FROM student WHERE major = 'Chemistry';
+		selects all student with major as Chemistry
+
+	DELETE FROM student WHERE student_id = 5;
+		Delete from student table where student_id meets the condition.
 
 
 ## SQLAlchemy ORM
