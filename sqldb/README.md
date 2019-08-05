@@ -7,7 +7,7 @@
 	service mysqld st
 # Sql terminal commands
 
-	-- comment 
+	-- comment <, >, <=, >=, =, <>, AND, OR
 		-- is how you comment in sql 
 
 	show databases;
@@ -66,8 +66,134 @@
 	SELECT * FROM student WHERE major = 'Chemistry';
 		selects all student with major as Chemistry
 
+	select first_name as forename, last_name as surname from employee limit 5;
+		selects first five first_name and last_name and displays them as forename and
+		surname
+
+	SELECT DISTINCT sex FROM employee;
+		selects different type of sex from employees 
+
 	DELETE FROM student WHERE student_id = 5;
 		Delete from student table where student_id meets the condition.
+
+### SQL functions
+	
+	SELECT COUNT(emp_id) FROM employee;
+		returns the number of emp_id in employee
+
+	SELECT AVG(salary) FROM employee;
+		returns the avegare of all employee salary
+
+	SELECT COUNT(sex), sex FROM employee GROUP BY sex;
+		groups the number of emplyees by M or F or other sex if you have provided
+
+	SELECT * FROM client WHERE client_name LIKE '%school%'
+		all client name that have school in there name
+
+### SQL Wildcards
+		
+	wild cards are something similar to regex 
+	% = any number of characters
+	_ = one charatcer
+
+	SELECT * FROM client WHERE client_name LIKE '%LLC';
+		selects the company whose name ends with LLC
+	
+	select * from employee where birth_day like '____-10%';
+		get people born in october.
+	
+
+### some special sql keywords
+	
+	UNION
+	is used to club up two sql satatements together their are some constarints like
+	both statmenet should return same number of column and the data type should be same.
+	
+	SELECT client_name FROM client UNION SELECT supplier_name FROM branch_supplier;
+
+	JOIN
+	this is used to query two tables which share a common cloumn field and can be made 
+	to return certain values based on these qualities for example mangers of  a certain 
+	branch. There are two tables one branch and other employee the branch table has manr_id
+	as one column which is a foreign key mapping to employee id.
+
+	SELECT employee.emp_id, employee.first_name, branch.branch_name FROM employee
+	JOIN branch ON employee.emp_id = branch.mgr_id;
+
+	There are 
+	FULL JOIN
+	RIGHT JOIN
+	LEFT JOIN
+
+### Nested Queries	
+	queries can be nested to get the desired query
+	
+	SELECT employee.first_name, employee.last_name
+	FROM employee
+	WHERE employee.emp_id IN (
+		SELECT works_with.emp_id
+		FROM works_with
+		WHERE works_with.total_sales > 3000
+	);
+
+	SELECT client.client_name 
+	FROM client
+	WHERE client.branch_id = (
+		SELECT branch.branch_id
+		FROM branch
+		WHERE branch.mgr_id = 102
+		LIMIT 1
+	);
+
+### ON DELETE
+	considera situation where you delete an entry in one of the tables and there are other
+	entries in other tables linked as foreign key to eariler table Now what will have to 
+	the entires in those reference.
+	
+	On DELETE SET NULL
+		Set the reference to NULL
+	ON DELETE CASCADE
+		Delete the references  
+
+### Triggers
+	triggers are certain actions to be performed when certain conditions are met
+	
+	DELIMITER $$
+	CREATE
+		TRIGGER my_tigger BEFORE INSERT
+		ON employee
+		FOR EACH ROW BEGIN
+			INSERT INTO trigger_test VALUES('added new employee');
+		END$$
+	DELIMITER ;
+	
+	Every time a entry is made into the employee table the added new employee will be
+	added to the trigger_test table. Also the deliminiter need to be changed and rechanged 
+	for complete execution of command.
+	
+	DELIMITER $$
+	CREATE
+		TRIGGER my_tigger1 BEFORE INSERT
+		ON employee
+		FOR EACH ROW BEGIN
+			INSERT INTO trigger_test VALUES(NEW.first_name);
+		END$$
+	DELIMITER ;
+
+	DELIMITER $$
+	CREATE
+		TRIGGER my_trigger2 BEFORE INSERT
+		ON employee
+		FOR EACH ROW BEGIN
+			IF NEW.sex = 'M' THEN
+				INSERT INTO trigger_test VALUES("added male employee");
+			ELSEIF NEW.sex = 'F' THEN
+				INSERT INTO trigger_test VALUES('added female');
+			ELSE
+				INSERT INTO trigger_test VALUES('added other employee');
+			END if;
+		END$$
+	trigger for update, delete, etc can be created
 
 
 ## SQLAlchemy ORM
