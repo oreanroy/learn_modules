@@ -7,6 +7,8 @@
 	service mysqld st
 # Sql terminal commands
 
+## Initial db and table creation
+
 	-- comment <, >, <=, >=, =, <>, AND, OR
 		-- is how you comment in sql 
 
@@ -26,6 +28,12 @@
 	);
 		to create a table name student with those column fields
 
+## Insertion and upadations
+
+	insert into user (username, phone, adress, city, country) 
+	values ('orean', '89808020', 'albama 32', 'albama', 'USA');
+		to create an entry int the table
+	
 	UPDATE student set major = 'Bio' WHERE major = 'Biology';
 		change the major value to Bio which has Biology as value
 	
@@ -35,6 +43,11 @@
 	ALTER TABLE student ADD gpa DECIMAL(3, 2);
 		to alter a present table and add a new column(decimal) field to it.
 
+	update user set password_hash = 'value';
+		updates a row entry in datatbase
+
+## Selecting certain data or displaying data
+	
 	DESCRIBE student;
 		to get the detailed view of table 
 
@@ -42,17 +55,7 @@
 		to show all tables in the database
 
 	show columns from user;
-		to show all columns of the user table;
-	
-	insert into user (username, phone, adress, city, country)
-	values ('orean', '89808020', 'albama 32', 'albama', 'USA');
-		to create an entry int the table
-
-	drop database databasename;
-		deletes a database completely
-
-	update user set password_hash = 'value';
-		updates a row entry in datatbase
+		to show all columns of the user table;	
 	
 	select * from tablename;
 		show all entries in an table
@@ -73,8 +76,13 @@
 	SELECT DISTINCT sex FROM employee;
 		selects different type of sex from employees 
 
+## Deleting and drop functions 
+
 	DELETE FROM student WHERE student_id = 5;
 		Delete from student table where student_id meets the condition.
+	
+	drop database databasename;
+		deletes a database completely
 
 ### SQL functions
 	
@@ -193,7 +201,7 @@
 				INSERT INTO trigger_test VALUES('added other employee');
 			END if;
 		END$$
-	trigger for update, delete, etc can be created
+	trigger for update, delete, etc can be created 
 
 
 ## SQLAlchemy ORM
