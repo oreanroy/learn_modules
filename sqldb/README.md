@@ -203,6 +203,10 @@
 		END$$
 	trigger for update, delete, etc can be created 
 
+### Enitity relationship diagram..
+
+### Relational database design pattern 
+
 
 ## SQLAlchemy ORM
 	The SQLAlchemy interacts with the database using the session object. Session object 
