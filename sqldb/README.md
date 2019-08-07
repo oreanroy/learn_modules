@@ -205,7 +205,33 @@
 
 ### Enitity relationship diagram..
 
-### Relational database design pattern 
+## Relational Database designing
+
+### Things to consider while data base design
+
+	 > Entity
+		users, machine, cities etc..(info about which we are storing)
+	 > Attribute 
+		name, email, phone (for user.. The data that we store about a entity)
+	 > Tuple 
+		an entry in the table
+	
+	 > Data Integrity
+	   	> Entity integrity (unique entries or a field to uniquiely identify two enties with
+		  same data)
+		> Referential integrity (integrity of references to other table, like a comment 
+		  should have a user)
+		> Domain integrity (data type and size)
+	
+	> Atomicity
+		store only one thing, like first name, last name, instead of name
+
+	> Relationship 
+	(That is how the data flows among tables and how are they interelated for data transfer)
+		> one to one
+		> one to many 
+		> many to many(they dont work in a relational database)
+
 
 
 ## SQLAlchemy ORM
