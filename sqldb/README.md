@@ -224,15 +224,55 @@
 		> Domain integrity (data type and size)
 	
 	> Atomicity
-		store only one thing, like first name, last name, instead of name
+		store only one thing, like first name, last name, instead of name that is one 
+		column to store one value
 
 	> Relationship 
 	(That is how the data flows among tables and how are they interelated for data transfer)
+	  ## Binary relationships
+
 		> one to one
 		> one to many 
 		> many to many(they dont work in a relational database)
 
+	>> Creating an one to one relationship
+		to create an one to one relationship between two tables.. you store the unique id
+		of one as the foreigin key in another and vice versa
+	
+		user              parent
+	      ________          ________
+		u_id              P_id
+		name              name
+		email             phone
+                p-id(as fk)       u_id(as fk)
 
+		foreign key being used to create an one to one to relationship
+
+	>> creating an one to many relationship
+		to create an one to many relationship the (multiple)qunatity which can be related
+		or traced back to one quntity stores the unique id of the parent attribute as 
+		foregin key. The child will always have the foreign key
+	
+		user             comment
+	      ________		_________
+		name		  c_id
+		email		  date
+		u_id              detail
+			          u_id(as fk)
+
+	>> creating many to many relationship
+		take an example pf student and class. A student can take mutiple class and a clas
+		can have multiple student so how would this be implemented. In a database schema
+		To implement a many to many relationship an intermediate table is used. This 
+		intermidiate table is known as junction table. This is done by 1:M and then M:1
+		mapping that is one to many and then many to one.
+
+		class             class_id   student_id            student              
+	      ___________        ________________________         _________
+	        63 math              75         8                   john 8
+	        75 science           89         8                   jake 17
+                81 english           75         16                  sally 16
+                  						    claire 6
 
 ## SQLAlchemy ORM
 	The SQLAlchemy interacts with the database using the session object. Session object 
