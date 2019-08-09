@@ -274,6 +274,17 @@
                 81 english           75         16                  sally 16
                   						    claire 6
 
+### normalization function 
+	>> number1function
+	>> number2function
+	>> number3function
+
+### Things with key 
+	>> unique
+	>> never changing
+	>> never Null
+	(this is more about specificaly primary key)
+
 ## SQLAlchemy ORM
 	The SQLAlchemy interacts with the database using the session object. Session object 
 	wraps the database connection and transaction. Transaction implicitly starts as soon
