@@ -274,6 +274,14 @@
                 81 english           75         16                  sally 16
                   						    claire 6
 
+### Lookup Table
+	Let us assume we have to keep in consideration weather a new user is of gold, platinum
+	diamond, bronze etc membership. So one way is to create a seprate lookup table and link
+	link there or other way is to fill the data in the table which you have username or other
+	stuff. Now if you have seprate lookup table it gives you flexibility of updating at 
+	one place or adding further to features. Whereas if you kept it int same table there
+	would have been repetitive data
+
 ### normalization function 
 	>> number1function
 	>> number2function
