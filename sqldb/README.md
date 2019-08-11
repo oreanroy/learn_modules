@@ -282,16 +282,110 @@
 	one place or adding further to features. Whereas if you kept it int same table there
 	would have been repetitive data
 
-### normalization function 
-	>> number1function
-	>> number2function
-	>> number3function
+### keys
+	super Key
+		Any number of columns which create a unique entry index(only for desiging purpose)
+		
+	Candiate Key
+		Minimum number of columns which create unique entry 
+
+	primary Key
+	  >> surogate key
+		category of primary key which has no real world	significance like user_id
+	 	(self incrimenting)
+	  >> natural key
+		category of primary key which has some real world significance like username
+	
+	Foregin Key
+		When you reference the primary key of one table in another table it is foregin
+		key binding. These relationship help us mantain data. It can be set to not 
+		nullable. Assume a case where a comment is created with user_id which does 
+		not exists or without a user_id, which is not possible in real world.
+		These kind of disperency can be removed using foreign key
+	
+	  Constraints on FK
+	    
+	    ON DELETE	
+	    ON UPDATE
+	      These refer to the parent
+
+	    RESTRICT (this prevents the actiion and throw the error)
+	    CASCADE  (if deleted the FK row refrenced is also deleted, that is same action is 
+ 	              taken for the reference)
+	    SET NULL (sets that column in refrence to NULL, no the complete row)
+
 
 ### Things with key 
 	>> unique
 	>> never changing
 	>> never Null
 	(this is more about specificaly primary key)
+
+### normalization function 
+	Steps That you take to improve the database  	
+	  
+	  >> number1function (make everything atomic)
+	  >> number2function (Remove the partial dependency)
+	  >> number3function (Remove the trainsitive dependency)
+
+	Transitive depepndency is a dependency in the databse an indirect relationship between
+	values in the same table that causes a functiontional dependency. 
+	something like column A in a table relies on Column B through an intermedite column C.
+
+### Cardinality
+	reltionship between row one and row of another table, kind of relationship which
+	happen in database is called cardinality
+		one to one (nullable) / one to zero	
+		one to one (not nullable)
+		one to many (nulllabe)
+		one to many(not nullable)
+
+### Joins
+	These are statements which are used to collect data from multiple tables and present
+	them in a required format
+
+	   User                   comments
+      ______________          ____________________
+       u_id   name              u_id     comment
+	7     jane               7        lol
+	8     kobe               7        haha
+                                 8        dman!
+
+
+       join will produce
+
+		name          comment
+	       jane             lol
+               jane             haha
+	       kobe             damn!
+
+	That is an inner join/left join on u_id betwen user and comments table
+
+	Inner Join
+		It works as intersection of sets, it will take those rows which have 
+		entries in both table that is if select customer_id only those rows will
+		be selected which have values for customer_id in both table
+
+	Outer Join
+	  Left Join
+		Returns everthying from left side and only the rows related on right side
+	  Right Join
+		same as left only this time all of right is returned
+	  Full outer'
+	
+	Self Join
+		That is a join with the same table, take the example of referal system we
+		we may have table in below format
+	
+		user_id  name  email  referal_key
+                                         FK to User_id
+
+	 	Now if we want to return a table in which we have a column of name and refred
+	 	by should have name of refree rather than the user_id we can we use a self join
+	 	we need to use an alias to make the implementation possible.
+
+		SELECT u1.fn, u1.ln, u1.email, u2.email FROM user AS v1 JOIN
+		user as v2 ON v1.ref_id = v2.user_id
 
 ## SQLAlchemy ORM
 	The SQLAlchemy interacts with the database using the session object. Session object 
