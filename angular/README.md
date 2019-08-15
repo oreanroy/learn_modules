@@ -367,7 +367,7 @@ The course structure
 
 
 # Property and Event Binding
-	passing data between components is of a concern which can be 
+	passing data between components is of a concern which can be resolved using Event 	  binding 
 
 
 	
