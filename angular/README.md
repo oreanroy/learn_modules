@@ -342,7 +342,7 @@ The course structure
 	that's ngIf with an else statement and use of local marker shown there. The
 	#noServer is the local marker which will is rendered in else case.
 
-	### ngStyle
+### ngStyle
 	
 	it is a attribute directory that is it can be used to change the attribute 
 	of a dom element
@@ -352,14 +352,14 @@ The course structure
 
 	you can write a getColor() function in export of the same component 
 
-	### ngClass
+### ngClass
 
 	<h1 [ngStyle]="{backgroundColor: getColor()}" [ngClass]="{online: serverStatus === 		'online'}"> {{ 'Server' }} with ID {{ serverId }} is {{ serverStatus }} </h1>
 
 	this will associate the styles associated with class online to the h1 element
 	when online condition is sattisfied
 
-	### ngFor
+### ngFor
 	
 	<app-server *ngFor="let server of servers"></app-server>
 	
@@ -367,7 +367,97 @@ The course structure
 
 
 # Property and Event Binding
-	passing data between components is of a concern which can be resolved using Event 	  binding 
+	Assume a variable/property that is defined in a ts file of a component that can only 
+	be accessed inside the component that is the html file attached to that component now
+	assume you want to access that property/variable outside the component how will you 
+	do it.
+
+	Take this example for consideration 
+	
+	server-conponent.ts file	
+
+	import { Component, OnInit, Input } from '@angular/core';
+	import { Content } from '@angular/compiler/src/render3/r3_ast';
+
+	@Component({
+	  selector: 'app-server-element',
+	  templateUrl: './server-element.component.html',
+	  styleUrls: ['./server-element.component.css']
+	})
+	export class ServerElementComponent implements OnInit {
+	  @Input() element: {type: string, name: string, content: string};
+	  constructor() { }
+
+	  ngOnInit() {
+	  }
+
+	}
+
+	server-component.html file
+
+	<div
+	    class="panel panel-default"
+	    >
+	    <div class="panel-heading">{{ element.name }}</div>
+	    <div class="panel-body">
+	      <p>
+	        <strong *ngIf="element.type === 'server'" style="color: red">		{{ element.content }}</strong>
+	        <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
+	      </p>
+	    </div>
+	</div>
+
+	app-component.ts file 
+
+	
+	import { Component } from '@angular/core';
+
+	@Component({
+	  selector: 'app-root',
+	  templateUrl: './app.component.html',
+	  styleUrls: ['./app.component.css']
+	})
+	export class AppComponent {
+	  serverElements = [{type: 'server', name: 'Testserver', content: 'just a test'}, 
+                    {type: 'blueprint', name: 'Teest blueprint', content: 'just a test'}];
+	  
+	}
+
+
+	app-component.html file 
+
+	<div class="container">
+        <app-cockpit></app-cockpit>
+	  <hr>
+	  <div class="row">
+	    <div class="col-xs-12">
+	      <app-server-element 
+	      *ngFor="let serverElement of serverElements"
+	      [element]="serverElement"></app-server-element>
+	    </div>
+	  </div>
+	</div>
+
+	In the above example we have a element property in server-element.ts which under
+	normal condition can only be accessed by server-component.html but here it is accessed
+	by app-componet.html and used to shell out objects of type element from data taken
+	from app-compoent.ts which was made possible by the use of @input()
+	this makes it availble for parent component
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 
 
 	
