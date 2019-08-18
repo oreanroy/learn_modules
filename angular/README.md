@@ -367,6 +367,8 @@ The course structure
 
 
 # Property and Event Binding
+
+## adding to own/custom property
 	Assume a variable/property that is defined in a ts file of a component that can only 
 	be accessed inside the component that is the html file attached to that component now
 	assume you want to access that property/variable outside the component how will you 
@@ -443,17 +445,150 @@ The course structure
 	by app-componet.html and used to shell out objects of type element from data taken
 	from app-compoent.ts which was made possible by the use of @input()
 	this makes it availble for parent component
+	you will also have to import input from angular core
+
+
+	Now consider a case where you want the property to be known by other name outside
+	the component this can be done by using an alias which can be used outside the 
+	component
+
+	@Input('srvElement') element: {type: string, name: string, content: string};
+
+	now you can use srvElement instead to just element in app-component.html
+	that is
+	
+	<div class="col-xs-12">
+	      <app-server-element 
+	      *ngFor="let serverElement of serverElements"
+	      [srvElement]="serverElement"></app-server-element>
+	</div>
+
+
+## Binding to custom events
+
+	consider a scenario where there is a child component and an event occurs in the child
+	component like a button is clicked or a form is submitted now you want to call a 
+	function of parent component or pass the data from child to parent how will you do 
+	that lets see
+	
+
+	so we create an event in the child component and then emit it to the parent compoenent
+	when a button is clicked(or other such event) the parent has an event binding to 
+	this custom and will call a fucntion or execute other task
+
+	take an example of below code
+
+	cockpit.component.ts
+	
+	import { Component, OnInit, EventEmitter, Output} from '@angular/core';
+
+	@Component({
+	  selector: 'app-cockpit',
+	  templateUrl: './cockpit.component.html',
+	  styleUrls: ['./cockpit.component.css']
+	})
+	export class CockpitComponent implements OnInit {
+
+	  @Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
+	  @Output() bluprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
+	  constructor() { }
+
+	  ngOnInit() {
+	  }
+	  newServerName = '';
+	  newServerContent = '';
+
+	  onAddServer() {
+	    this.serverCreated.emit({
+	      serverName: this.newServerName,
+	      serverContent: this.newServerContent
+	    })
+	  }
+
+	  onAddBlueprint() {
+	    this.bluprintCreated.emit({
+	      serverName: this.newServerName,
+	      serverContent: this.newServerContent
+	    })
+	  }
+	}
 
 
 
+	here we have created two event emitter and two functions which are executed when
+	the button is clicked both of which call different event emitter. this event is what
+	the parent listens to. Along wiht the event it also transmits some data
+
+	<div class="row">
+	    <div class="col-xs-12">
+	      <p>Add new Servers or blueprints!</p>
+	      <label>Server Name</label>
+	      <input type="text" class="form-control" [(ngModel)]="newServerName">
+	      <label>Server Content</label>
+	      <input type="text" class="form-control" [(ngModel)]="newServerContent">
+	      <br>
+	      <button
+		class="btn btn-primary"
+		(click)="onAddServer()">Add Server</button> // the function being called
+	      <button
+		class="btn btn-primary"
+		(click)="onAddBlueprint()">Add Server Blueprint</button>
+	    </div>
+	</div>
+	
+	this is how you trigger the event from browser, now have a  look at the parent
+	component .ts file
+
+	import { Component } from '@angular/core';
+
+	@Component({
+	  selector: 'app-root',
+	  templateUrl: './app.component.html',
+	  styleUrls: ['./app.component.css']
+	})
+	export class AppComponent {
+	  serverElements = [{type: 'server', name: 'Testserver', content: 'just a test'}, 
+		            {type: 'blueprint', name: 'Teest blueprint', content: 'just a test'}];
+	  
+	onServerAdded(serverData: {serverName: string, serverContent: string}) {
+	  this.serverElements.push({
+	    type: 'server',
+	    name: serverData.serverName,
+	    content: serverData.serverContent
+	  });
+	}
+	onBlueprintAdded(blueprintData: {serverName: string, serverContent: string}) {
+	  this.serverElements.push({
+	    type: 'blueprint',
+	    name: blueprintData.serverName,
+	    content: blueprintData.serverContent
+	  });
+	}
+	}
 
 
 
+	here we have two functions which are called when the event is encountered now 
+	see how the event lintener is put in the html file
 
-
-
-
-
+	<div class="container">
+	  <app-cockpit 
+	  (serverCreated)="onServerAdded($event)"
+	  (bluePrintCreated)="onBlueprintAdded($event)" // these are the event listener
+	  ></app-cockpit>
+	  <hr>
+	  <div class="row">
+	    <div class="col-xs-12">
+	      <app-server-element 
+	      *ngFor="let serverElement of serverElements"
+	      [srvElement]="serverElement"></app-server-element>
+	    </div>
+	  </div>
+	</div>
+ 
+	The event listener also collect the data generated during event trigger
+	you can also add alias to it as you have done above it also prevents the 
+	real name to be exposed outside 
 
 
 
