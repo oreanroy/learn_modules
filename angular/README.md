@@ -591,7 +591,50 @@ The course structure
 	real name to be exposed outside 
 
 
+## view encapsulation
 
+	That is the css written for a component is only applicable to that component 
+	and will also not be applicable to its child componen. example you write a css
+	p { color: blue; } in app.compoen.css and a child component has an p element 
+	then it will not be blue
+
+	This is because of the shadow dom feature of the angular its not a pure shadow 
+	dom the angualar adds an add on class to the element hence the css is only applied
+	to the coresponding component html 
+
+## modifications to view encapsulation
+
+	The encapsulation can be set to three values the deafult one being the emulated
+	other is none which means any css apllied will also be applied globaly  and finaly
+	native which gives the same result as emulated but use the shadow dom underneath as
+	a technology
+
+## local refrence
+	these are refrences which can be used to denote an element and can only be used
+	in the html file. These denote a element hence the compolete element is passed
+	They can be setup using an # symbol
+	take this for example 
+	
+	<input 
+	  type="text"
+	  class="form-control"
+	  #serverNameInput>
+	
+	now you can pass this element around using the key word serverNameInput
+
+	
+	<button
+	  class="btn btn-primary"
+	  (click)="onAddServer(serverNameInput)">Add Server
+	</button>
+
+	onAddServer(nameInput: HTMLInputELement) {
+	  this.serverCreated.emit({
+	    serverName: nameInput.value,
+	    serverContent: this.newServerContent
+	  });
+	}
+	
 	
 
 
