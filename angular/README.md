@@ -190,6 +190,35 @@ The course structure
 		--spec fail prevents creation of testing file
 		
 			
+## Component Life Cycle in angular
+	
+	when ever angular encounters a component selector the agular creates a component 
+	initializes it and does various other things. The components goes through a cycle
+	of events from the initialization to destory(if it is ever using ng-if). Angular 
+	provides us diffrent hooks which can be hooked to different life cycle events and
+	made to execute code when that lifecycle is encountered. The different life cycle
+	events in angular are
+
+	ngOnChanges   called after the bound input property changes(when new component
+			and also when @input receive new value)
+
+	ngOninit      called once the component is initialized(that is object created)
+
+	ngDoCheck     called during every change detection run
+		      take not it is change detection so need not be that a change
+		      has actually occured, like if you click a button and nothing happens
+		      then also angualar will go trough the code and check for changes
+
+	ngAfterContentInit  called after content(ng-content) has been projected into view
+	                    that is the parent need not be child
+
+	ngAfterViewInit     called after the componet's view(and child views) has been
+		            initialized
+
+	ngAfterViewChecked  called evry time the view(and child views) have been checked
+
+	ngOnDestroy         called once the component is about to be destroyed
+
 	
 ## Databinding 
 		
