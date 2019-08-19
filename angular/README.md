@@ -365,6 +365,35 @@ The course structure
 	
 	this will loop over the elements in servers and pass the server in the template
 
+### ngContent
+	Lets assume you want to insert html contnet inside a component. How will you do it
+	thats where ngContent can be used. It is like a placeholder and any html content
+	passed between the components tag will be rendered at the placeholder. Look at
+	the example
+
+	<app-server-element 
+            *ngFor="let serverElement of serverElements"
+            [srvElement]="serverElement">
+          <p>
+          <strong *ngIf="serverElement.type === 'server'" style="color: red"> 	   {{ serverElement.content }}</strong>
+          <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+          </p>
+        </app-server-element>
+
+	in the above if we take the default behaviour in consideration whatever is passed
+	between the app-server-element will be ingnored but if we place a ng-content in
+	the component html file then that will be rendered at the place of ng-content
+
+	<div
+	    class="panel panel-default"
+	>
+    	  <div class="panel-heading">{{ element.name }}</div>
+    	  <div class="panel-body">
+            <ng-content></ng-content>
+          </div>
+	</div>
+
+	That is how ng-content work
 
 # Property and Event Binding
 
@@ -635,7 +664,40 @@ The course structure
 	  });
 	}
 	
-	
+
+## Getting access to template and dom with @viewChild
+
+	as in local reference you were getting the complete elment which was passed around
+	there is a another way to access the dom. in this it is not the element which is
+	passed around but the reference, it is possible by using the @viewchild decorator\
+	see its working example
+
+	<input 
+	  type="text" 
+          class="form-control" 
+          #serverContentInput>
+
+	Rather than using the two way binding you are using an local reference now watch 
+	the cahnges made in ts file
+
+	newServerName = '';
+	  //newServerContent = '';
+	  @ViewChild('serverContentInput', { static: true}) serverContentInput: ElementRef;
+
+	  onAddServer() {
+	    this.serverCreated.emit({
+	      serverName: this.newServerName,
+	      serverContent: this.serverContentInput.nativeElement.value
+	    })
+	  }
+
+	here we used a viewChild to get the reference to local reference and using the name
+	we can access the dom. We can also make chages to the dom from the .ts file but that
+	should be avoided at all costs.
+
+
+
+
 
 
 	
