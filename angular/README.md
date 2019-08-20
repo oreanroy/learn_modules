@@ -219,6 +219,38 @@ The course structure
 
 	ngOnDestroy         called once the component is about to be destroyed
 
+
+### Seeing the component life cycle in event
+	
+	ngOnChanges
+
+	  This is the only hook which recives an input argument.. here it is taking in 
+	  changes: SimpleChanges
+	  
+	  ngOnChanges(changes: SimpleChanges) {
+	    console.log('ngOnChanges called');
+	    console.log(changes)
+	  }
+
+	The simpleChanges is an object which keeps track of past the changes and current
+	value previous value etc 
+	
+	{name: SimpleChange}
+	name: SimpleChange
+	currentValue: "changed!"
+	firstChange: false
+	previousValue: "Testserver"
+	__proto__: Object
+	__proto__: Object
+
+	This hook can we used if you want to react to changes and do something with a value
+	before it is dumped after change
+
+	ngDoCheck
+
+	  run wehever angular detecs a change.. like a event was triggerd a promise
+	  was returned
+	
 	
 ## Databinding 
 		
@@ -723,6 +755,10 @@ The course structure
 	here we used a viewChild to get the reference to local reference and using the name
 	we can access the dom. We can also make chages to the dom from the .ts file but that
 	should be avoided at all costs.
+
+	Along with this there is also a @viewChild which can be used to get the elemets in 
+	the ngContent 
+### 
 
 
 
