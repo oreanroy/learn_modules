@@ -173,6 +173,9 @@
 	free grammar. 
 
 	The detailed step by step explation is below
+
+## JSteg Algorithm
+
 	
 
 
