@@ -81,4 +81,52 @@
 	and they can only view there own folders unless using admin permission
 
 
+## Some commands
+
+### grep
+	grep stands for global regular expression and print, it looks for patterns of text in
+	a file and prints them, grep uses posix regular exp
+
+	$ grep "jane williams" names.txt
+
+	above it searches foe jane williams in names.txt or similar pattern matching text
+	to make it explicitly look for the same text we can use -w 
+
+	$ grep -w "jane williams" names.txt
+
+	grep is case sensitive, we can by pass that by using the -i 
+
+	$ grep -wi "jane williams" names.txt
+
+	if we use the -in it will also give the line number where it finds the text
+
+	$ grep -win -B 4 "John willimas" names.txt
+
+	This will also return the four lines before the match
+
+	grep -winr "jane williams" ./
+
+	This will recursively search everything inside the directory.
+
+#### pipping will other commands
+
+	$ history | grep "git commit"
+
+	this will give out all commands which involved git commit in them
+
+	$ history | grep "git commit" | grep "dotfile"
+	
+	this taken in only the git commit commands and then takes out oly the one 
+	involving dotfile in them
+
+#### using it with regular expressions
+		
+	$ grep "..._..._...." names.txt
+	
+	this maches phone number that is thre character then a _ then again three character
+
+
+
+	
+
 
