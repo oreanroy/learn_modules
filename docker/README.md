@@ -90,3 +90,11 @@
 	Now docker run	
 	  docker run private-registery.io/apps/internal-app
 
+## Container orchestration
+
+	When an application is deployed there are time when new instance of a image
+	need to be swapned or extra instances need to be destroyed. Or if the load 
+	on the host increases beyond an extent the complete the host can go down
+	you write a script work around this or keep a person to keep an eye on it
+	or use an orceshteration tool like docker swarm, kubernetes, mesos etc
+
