@@ -80,6 +80,11 @@
 	Each user has his own folder, inside each user stores its own personal folder
 	and they can only view there own folders unless using admin permission
 
+## Concept of Deamon
+
+	A dameon is a background process/service that is designed to run autonomously, with
+	little or no user intervention. Theses process have names ending wiht d postfix like
+	the httpd process
 
 ## Some commands
 
@@ -126,6 +131,14 @@
 	this maches phone number that is thre character then a _ then again three character
 
 
+### Comands to minitor process
+
+#### top
+	This lists all the running process and their sysytem usage 
+
+#### ps and pstree
+	This lists all the running process, while the tree prfix lists them in
+	tree structure
 
 	
 
