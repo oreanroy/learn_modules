@@ -130,8 +130,13 @@
 	
 	this maches phone number that is thre character then a _ then again three character
 
+### env
+	This will display the environment variables 
 
-### Comands to minitor process
+### unset
+	To unset a environment variable 
+
+### Comands to monitor process
 
 #### top
 	This lists all the running process and their sysytem usage 
