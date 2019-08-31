@@ -98,3 +98,13 @@
 	you write a script work around this or keep a person to keep an eye on it
 	or use an orceshteration tool like docker swarm, kubernetes, mesos etc
 
+
+## Running docker based windows conatainer 
+
+	Ohk the laguange of this not gonna be sarcastic at all but yeah all hail and
+	thank mircosoft.
+	You cannot run windows coantainer on linux as the base kernel os need  to be same
+	and then you need enterise edition mwindows which has only hyper v virtualization
+	support. So tried soinning a vm with enterprise editon windows to make my docker 
+	coantiner lets see how it comes out to be ..
+
