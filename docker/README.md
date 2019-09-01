@@ -9,12 +9,25 @@
 ## what is image
 
 ## Running your first container
+	docker run 
 
 ## Docker commands on container
 
 ## Docker commands on image
 
 ## Building your first container
+
+### Dcoker build command
+	The build command is used to create a docker image from a docker file
+### Docker onbuild command
+	The on build command is used to postpond the execution of certian command
+	and are executed when a new image is created taking the initial image where
+	the onbuild was used as a base image.
+
+### Preventing certain files from being added to image
+	User .dockerignore file
+	it is something similar to .gitinore add the file or directory which needs to 
+	ignored 
 
 ## Docker compose files 
 
