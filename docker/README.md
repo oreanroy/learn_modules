@@ -35,6 +35,27 @@
 
 ## Docker storage
 
+### Storing data in the host 
+	you can store data in a directory in the host usig the volume command
+	
+	-v <host-dir>:<container-dir>
+
+### data containers
+	You can also configure some containers as data containers and store data into them
+	these can be referenced whwn required
+
+	create such container
+
+	  docker create -v /config --name dataContainer busybox
+	The -v option tells where other containers will be storing data
+
+	copying files into such container
+	  docker cp config.conf dataContainer:/config/
+
+	You can mount voulumes from this container to other container when you create 
+	the container 
+	
+
 ## Docker Networking
 
 	When docker is installed it creates three network by default
