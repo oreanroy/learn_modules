@@ -53,7 +53,15 @@
 	  docker cp config.conf dataContainer:/config/
 
 	You can mount voulumes from this container to other container when you create 
-	the container 
+	the new container 
+	  dcoker run --volumes-from dataContainer ubuntu ls /config
+	
+	We can also export the data container as a tar file 
+	  dcoker export dataContainer > dataContainer.tar
+
+	which can be reimported to docker by
+	  docker import dataContainer.tar
+
 	
 
 ## Docker Networking
