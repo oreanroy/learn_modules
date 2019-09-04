@@ -174,7 +174,18 @@
 
 	The detailed step by step explation is below
 
+## Exponteial Backoff 
+	This is used in ethernet to prevent collison between the packets sennd if there 
+	are more than one machine attached. The backoff time keeps on increasing 
+	exponetialy if collison keeps on occuring. And the two machines pick a random
+	number between the new time to send the data packet. This decreases the probability
+	of colison each cycle. 
+	The complete algorithm is explained below 
+
 ## JSteg Algorithm
+
+
+
 
 	
 

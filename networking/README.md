@@ -1,5 +1,7 @@
 ## Networking basics
 
+
+
 ### Interface nomenclature
 	Names incorporating Firmware/BIOS provided index numbers for on-board devices (example: eno1)
 	Names incorporating Firmware/BIOS provided PCI Express hotplug slot index numbers (example: ens1)	
@@ -22,3 +24,9 @@ Classic, unpredictable kernel-native ethX naming (example: eth0)
 
 	  To bring up the enp0s8 interface in the machine.. used moslty to create an 
 	  network of mahchines on the VM
+
+## MIT OCW On Networking
+
+### MAC adress
+	media acess protocol this is used when multiple machines acess a same media source
+	to establish syncronization between them. 

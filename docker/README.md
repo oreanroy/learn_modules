@@ -9,6 +9,7 @@
 ## what is image
 
 ## Running your first container
+	docker run 
 
 ## Docker commands on container
 
@@ -16,11 +17,52 @@
 
 ## Building your first container
 
+### Dcoker build command
+	The build command is used to create a docker image from a docker file
+### Docker onbuild command
+	The on build command is used to postpond the execution of certian command
+	and are executed when a new image is created taking the initial image where
+	the onbuild was used as a base image.
+
+### Preventing certain files from being added to image
+	User .dockerignore file
+	it is something similar to .gitinore add the file or directory which needs to 
+	ignored 
+
 ## Docker compose files 
 
 ## Docker Engine
 
 ## Docker storage
+
+### Storing data in the host 
+	you can store data in a directory in the host usig the volume command
+	
+	-v <host-dir>:<container-dir>
+
+### data containers
+	You can also configure some containers as data containers and store data into them
+	these can be referenced whwn required
+
+	create such container
+
+	  docker create -v /config --name dataContainer busybox
+	The -v option tells where other containers will be storing data
+
+	copying files into such container
+	  docker cp config.conf dataContainer:/config/
+
+	You can mount voulumes from this container to other container when you create 
+	the new container 
+	  dcoker run --volumes-from dataContainer ubuntu ls /config
+	
+	We can also export the data container as a tar file 
+	  dcoker export dataContainer > dataContainer.tar
+
+	which can be reimported to docker by
+	  docker import dataContainer.tar
+
+	
 
 ## Docker Networking
 
@@ -98,6 +140,7 @@
 	you write a script work around this or keep a person to keep an eye on it
 	or use an orceshteration tool like docker swarm, kubernetes, mesos etc
 
+<<<<<<< HEAD
 ## Running windows containers 
 	Ohk so this one was a hard task given the no support policy of microsoft 
 	dockerized windows container can only run on windows 10 pro or enterprise 
@@ -117,4 +160,15 @@
 	
 	Now you can run the docker image and connect it to through a VNC server. You put 		the localhost:5900 as the connection adress and selenoid as the password.
 	
+=======
+
+## Running docker based windows conatainer 
+
+	Ohk the laguange of this not gonna be sarcastic at all but yeah all hail and
+	thank mircosoft.
+	You cannot run windows coantainer on linux as the base kernel os need  to be same
+	and then you need enterise edition mwindows which has only hyper v virtualization
+	support. So tried soinning a vm with enterprise editon windows to make my docker 
+	coantiner lets see how it comes out to be ..
+>>>>>>> 4c2ba6ac76579931e99c6deec342d1280c3c6892
 
