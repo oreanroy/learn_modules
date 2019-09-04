@@ -98,3 +98,23 @@
 	you write a script work around this or keep a person to keep an eye on it
 	or use an orceshteration tool like docker swarm, kubernetes, mesos etc
 
+## Running windows containers 
+	Ohk so this one was a hard task given the no support policy of microsoft 
+	dockerized windows container can only run on windows 10 pro or enterprise 
+	edition. This took almost 2 days to finaly figure a work around and do it
+	the people at aerocuke have done a great job regarding this and their work
+	served as the base of my work. 
+	
+	So how do you do it on linux.. 
+	You take up a base ubuntu image and inside that they run a virtualization
+	tool likle qemu and then copy the windows image and a pre configured sdd image
+	inside the dockerfile folder and then boot this pre booted image of windows
+	There is one problem that will come up that the driver image is not signed 
+	windows can throw this error when you use the redhat provided drivers through
+	some luck the amd architecture of driver worked out.... and was able to create	
+	the booted snap and then dockerize it through the docker file. The final docker
+	fie came out to be 13 gigs.
+	
+	Now you can run the docker image and connect it to through a VNC server. You put 		the localhost:5900 as the connection adress and selenoid as the password.
+	
+
