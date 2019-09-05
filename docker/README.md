@@ -1,4 +1,6 @@
 ## What is Docker
+   
+   Docker is a containerization tool 
 
 ## How does it work
 
