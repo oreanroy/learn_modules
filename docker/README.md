@@ -11,9 +11,26 @@
 ## what is image
 
 ## Running your first container
-	docker run 
+	docker run container name
+	  This runs the container 
+
+	docker run -d container name
+	  This runs the container in detached mode that is it runs in the background and
+	  the terminal is open for taking other commands
+
+	docker run -d -p 8081:8080 -e env_val="bash" container tag/id
+	  This runs the container in detached mode also forwards the trafiic from host
+	  port 8081 to 8080 of the container it also sets a enviroment variable e using 
+	  the -e prefix.
+
 
 ## Docker commands on container
+
+	docker stop container name/ id
+	  This stops the running container 
+	
+	docker rmi image tag
+	  This removes the container completely
 
 ## Docker commands on image
 
