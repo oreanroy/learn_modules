@@ -159,7 +159,7 @@
 	you write a script work around this or keep a person to keep an eye on it
 	or use an orceshteration tool like docker swarm, kubernetes, mesos etc
 
-<<<<<<< HEAD
+
 ## Running windows containers 
 	Ohk so this one was a hard task given the no support policy of microsoft 
 	dockerized windows container can only run on windows 10 pro or enterprise 
@@ -179,15 +179,4 @@
 	
 	Now you can run the docker image and connect it to through a VNC server. You put 		the localhost:5900 as the connection adress and selenoid as the password.
 	
-=======
-
-## Running docker based windows conatainer 
-
-	Ohk the laguange of this not gonna be sarcastic at all but yeah all hail and
-	thank mircosoft.
-	You cannot run windows coantainer on linux as the base kernel os need  to be same
-	and then you need enterise edition mwindows which has only hyper v virtualization
-	support. So tried soinning a vm with enterprise editon windows to make my docker 
-	coantiner lets see how it comes out to be ..
->>>>>>> 4c2ba6ac76579931e99c6deec342d1280c3c6892
 
