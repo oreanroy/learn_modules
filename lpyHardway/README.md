@@ -205,6 +205,10 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 	the old mro is based on DLR deep first from, left to right. The new mro is 
 	based on c3serialization algorithm 
 
+### Metaclass 
+	The class are factories for objects.. well well meta class are factories for 
+	classes yeah they shell out class
+
 ### functions as first class objects
 
 	Everything in python is an object, including functiions. hence function 	can
