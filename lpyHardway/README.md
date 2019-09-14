@@ -162,6 +162,26 @@ the python assigns a global value  __main__ to __name__ varibale if the source f
 
 	### the self keyword is the refrence to the current instance of the clas	s you can name it anything. 
 
+#### Buitin methods in python class
+	
+	__init__
+	  Well you are very much aware of this method. it is called whenever an instance 
+	  of a class in defined. This has a deafult argument an alias to self which 
+	  is binded to the instance which calls the class.
+
+	__str__
+	  This is a special build in method which has a very peciuar use case. When you print
+	  an instace of class..it prints the normal representation that is the memory 
+	  location etc. But if you define a __str__ method inside the class. When you print
+	  it will print whatever is returned inside the __str__ functions
+
+	There are other builtin methods as well which can be defined and invoked
+
+	__add__(self, other) --->  self+other
+	__sub__(self, other) --->  self-other
+	__eq__(self, other)  ---> self == other
+	__it__(self, other) ----> self < other 
+	etc..	 
 
 ### The object in class dmystified
 

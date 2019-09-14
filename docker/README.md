@@ -1,4 +1,6 @@
 ## What is Docker
+   
+   Docker is a containerization tool 
 
 ## How does it work
 
@@ -9,9 +11,26 @@
 ## what is image
 
 ## Running your first container
-	docker run 
+	docker run container name
+	  This runs the container 
+
+	docker run -d container name
+	  This runs the container in detached mode that is it runs in the background and
+	  the terminal is open for taking other commands
+
+	docker run -d -p 8081:8080 -e env_val="bash" container tag/id
+	  This runs the container in detached mode also forwards the trafiic from host
+	  port 8081 to 8080 of the container it also sets a enviroment variable e using 
+	  the -e prefix.
+
 
 ## Docker commands on container
+
+	docker stop container name/ id
+	  This stops the running container 
+	
+	docker rmi image tag
+	  This removes the container completely
 
 ## Docker commands on image
 
@@ -140,7 +159,7 @@
 	you write a script work around this or keep a person to keep an eye on it
 	or use an orceshteration tool like docker swarm, kubernetes, mesos etc
 
-<<<<<<< HEAD
+
 ## Running windows containers 
 	Ohk so this one was a hard task given the no support policy of microsoft 
 	dockerized windows container can only run on windows 10 pro or enterprise 
@@ -160,15 +179,4 @@
 	
 	Now you can run the docker image and connect it to through a VNC server. You put 		the localhost:5900 as the connection adress and selenoid as the password.
 	
-=======
-
-## Running docker based windows conatainer 
-
-	Ohk the laguange of this not gonna be sarcastic at all but yeah all hail and
-	thank mircosoft.
-	You cannot run windows coantainer on linux as the base kernel os need  to be same
-	and then you need enterise edition mwindows which has only hyper v virtualization
-	support. So tried soinning a vm with enterprise editon windows to make my docker 
-	coantiner lets see how it comes out to be ..
->>>>>>> 4c2ba6ac76579931e99c6deec342d1280c3c6892
 
