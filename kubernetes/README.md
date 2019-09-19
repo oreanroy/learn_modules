@@ -14,3 +14,15 @@
 	Something similar is used in containerized workloads where a certain portion
 	of servers are kept as canary servers and any new cahanges are first rolled out 
 	on these servers and tested and then rolled out full fleged.
+
+## Kubernetes RBAC authorization
+
+## cretaing user
+
+## creating roles
+
+## applying roles
+
+## creating bindings
+
+## applying bindings  
