@@ -1,5 +1,4 @@
 ### This contains different resources to learn different technologies.
-### I code mostly in java, to get a hang and flow in python 
 	Python
 	>>> Learn python the hard way 
 	>>> The concepts of oops 
