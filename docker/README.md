@@ -178,5 +178,99 @@
 	fie came out to be 13 gigs.
 	
 	Now you can run the docker image and connect it to through a VNC server. You put 		the localhost:5900 as the connection adress and selenoid as the password.
+
+## Steps to run
+
+	>> Keep the driver file and the windows image file the directory where you want
+	   to create the container
+
+	>> create the hard disk image where windows will be installed
+ 	   
+	   qemu-img create -f qcow2 hdd.img 40G
+
+	>> Now run the vritual machine 
+	
+	   sudo qemu-system-x86_64 -enable-kvm \
+           -machine q35 -smp sockets=1,cores=4,threads=2 -m 4096 \
+           -usb -device usb-kbd -device usb-tablet -rtc base=localtime \
+           -net nic,model=virtio -net user,hostfwd=tcp::4444-:4444 \
+           -drive file=hdd.img,media=disk,if=virtio \
+           -drive file=Win10_18090Oct_x64.iso,media=cdrom \
+           -drive file=virtio-win-0.1.141.iso,media=cdrom 
+
+	
+	    sudo qemu-system-x86_64 -enable-kvm \
+           -machine q35 -smp sockets=1,cores=2,threads=2 -m 4096 \
+           -usb -device usb-kbd -device usb-tablet -rtc base=localtime \
+           -net nic,model=virtio -net user,hostfwd=tcp::4444-:4444 \
+           -drive file=hdd.img,media=disk,if=virtio \
+           -drive file=Win10_18090Oct_x64.iso,media=cdrom \
+           -drive file=virtio-win-0.1.141.iso,media=cdrom
+
+
+	>> Now you install windows and when prompted for the drivers select the 
+	   amd type of driver for E/veritio/win10/amd  
+	>> this will show red hat driver install the windows on the hard disk you 
+	   created earlier.
+
+	>> Now you lo in the windows and install web driver binaries for the edge 
+	   browser 
+
+
+	  DISM.exe /Online /Add-Capability /CapabilityName:Microsoft.WebDriver~~~~0.0.1.0
+
+	   by running the above command in the CMD run as administrator
+
+
+	>> Then you shut down the machine and virtual machine and save the state using
+	   the below command.
+
+
+	 sudo qemu-system-x86_64 -enable-kvm \
+        -machine q35 -smp sockets=1,cores=4,threads=2 -m 4096 \
+        -usb -device usb-kbd -device usb-tablet -rtc base=localtime \
+        -net nic,model=virtio -net user,hostfwd=tcp::4444-:4444 \
+        -drive file=snapshot.img,media=disk,if=virtio \
+        -monitor stdio
+
+	>> Now you go in the windows and run the following command
+	  MicrosoftWebDriver.exe --host=10.0.2.15 --port=4444 --verbose
+	
+	this 
+	  MicrosoftWebDriver.exe --host=10.0.2.15 --port=4444 --verbose
+
+	this will run the web driver server
+
+	>> Now you need to save the vm state
+
+	   (qemu) savevm windows
+
+	>> Now quit the vm
+	   (qemu) quit 
+
+
+	>> Now you can manually run the 
+
+	 sudo qemu-system-x86_64 -enable-kvm \
+        -machine q35 -smp sockets=1,cores=4,threads=2 -m 4096 \
+        -usb -device usb-kbd -device usb-tablet -rtc base=localtime \
+        -net nic,model=virtio -net user,hostfwd=tcp::4444-:4444 \
+        -drive file=snapshot.img,media=disk,if=virtio \
+        -loadvm windows
+
+
+	>> Now you can create a docker iamge using this 
+
+	docker build -t windows/edge:18 . # For Microsoft Edge
+
+	>> now you can run the container using 
+	docker run -it --rm --privileged -p 4444:4444 -p 5900:5900 windows/edge:18 
+
+	>> now log check it out using a vnc client 
+	 	vnc://localhost:5900
+		using password selenoid
+
+	
+
 	
 
