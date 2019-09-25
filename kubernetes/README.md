@@ -104,8 +104,28 @@
 	
 	Thsi will delete the specific object
 
-### Laeling and Annotating Object
-	$ kubectl label pods 
+### Labeling and Annotating Object
+	$ kubectl label pods
+
+### Debugging Commands
+	
+	$ kubectl log <pod-name> 
+	
+	This displays the logs for the current conatiner
+
+	$ kubectl exec -i <pod-name> --bash
+	
+	This runs a interactive bash shell inside the running container 
+
+	$ kubectl cp <pod-name>:/path/to/remote/file /path/to/local/file
+
+	This can be used to copy fils to and fro from cluster to local
+
+	kubectl help
+	kubectl help command-name
+	
+	TO get info about the command
+	 
 
 
 ## Canary Deploments
