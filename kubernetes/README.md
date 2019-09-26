@@ -127,6 +127,14 @@
 	TO get info about the command
 	 
 
+## Pods 
+
+	The pod is a group of whales. The whale is a symbol of docker so you get what pods
+	represents.
+
+### Accessing the pods 
+
+### Deleting a pod
 
 ## Canary Deploments
 
