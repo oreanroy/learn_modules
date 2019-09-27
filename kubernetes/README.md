@@ -131,10 +131,149 @@
 
 	The pod is a group of whales. The whale is a symbol of docker so you get what pods
 	represents.
+	You put containers in pod and  most of the time a sigle container is run in a single
+	pod but a case might arise where you run more than one container in a single pod as
+	in both the container share a  common syncronized 
 
-### Accessing the pods 
+### What do appilcations running on same pod share
+	The applications running on same pod share the same IP adress and port space.
+	(network namespace) have same hostname and can communicate using interprocess 
+	communication channels over system V, IPC etc
 
-### Deleting a pod
+### When to put containers in same pods
+	One question that you have to ask is will the containers work fine if they land up 
+	on different machines. Other things to keep in mind is how will the container 
+	scalling take place and are their symbiotic processes.
+
+### Creating Pods
+	The kubernetes API accepts the pod manifest and then stores that in the etcd storage
+	the sheduler finds the pods that haven't been placed and then places them on machine
+	which satisy the constraints. Kubernetes tries not to place multiple replica on same
+	to provide a workout single machine failiure.
+
+	There are two ways of creating pods that is by using replicaset deployment and other
+	by pod Manifest.
+
+### Deploying using Replicaset
+
+
+### Deploying using manifest
+	Pod manifets can be written uisng YAML or JSON. YAML is mostly prefered given the
+	comment enabled and human readability.
+	
+	a breif example
+	  apiVersion: v1
+	  kind: pod
+	  metadata:
+	    name: kuard
+	  spec:
+	    containers:
+	      - image: gcr.io/kaur-demo/kuard-amd64:1
+	        name: kuard
+	        ports:
+		  - containerPort: 8080
+	            name: http
+	            protocol: TCP	
+
+### Runnig Pods
+	kubectl apply -f kuard-pod.yaml
+	
+	The Pod manifest will be submitted to kubernetes API server. The kubernets system
+	will then schedule that pod to run on a healthy node in cluster. It wil be monitered
+	by kubelet daemon process
+
+	kubcetl get pods
+	  to get pods
+
+	kubectl descibe pods kuard
+	  to get a detailed picture of the pod
+
+	kubeclt delete pods/kuard 
+	or
+	kubcetl delete -f kuard-pod.yaml
+	  to delete a pod
+
+### accessing the pod
+	
+	Port forwarding
+
+	  to expose a service to world or other container using load balancer or to access 
+	  you need a port forwarding
+	    kubcetl port-forward kuard 8080:8080
+	
+	This creates a secure tunnel from your local machine, through the kubernetes master 
+	to the instance.
+
+	Getting Logs
+	  kubectl logs kuard
+	This gives the logs related to that pod it you can use -f for contious log stream
+	or other log aggreagatiob service like fluentd and elacticsearch 
+
+	Running Commands in container
+	  kubectl exec kuard date or kubcelt exec -it kuard bash
+
+	Copying files to and from Containers
+	  kubectl cp <pod-name>:/capture/capture3.txt ./capture3.txt
+	   this copies file form container to local machine
+	  kubectl cp $HOME/config.txt <pod-name>:/config.txt
+
+	Health checks
+	
+	  When you run the application as a container in kubernetes, it is automatically 
+	  kept alive uisng a process health check. This health check ensures that the main
+	  process is running. However simple process check might not be enough as the 
+	  application might have broken inside
+
+	  To adress this kubernetes introduced health checks for application liveness and 
+	  readiness
+	    The liveness probe checks if application is live while the readiness probe checks
+	    if the application is in ready state aong wilth built in health check that are
+	    dependent on HTTP, TCP-sockets 
+
+### Resource Management
+	Kubernets can also be used for optimum uitlization of available computing resources
+	so that there is less waste fo resources and dollars are saved. with sheduling system
+	such as kubernets utilization greater than 50% can be acheived
+
+	Minimum required Resource
+	  apiVersion: v1
+	  kind: pod
+	  metadat:
+	    name: kuard
+	  spec:
+            conatiners:
+	      - image: gcr.io/kuar-demo/kuard-amd64:1
+	        name: kuard
+	        resources:
+                  requests:
+                    cpu: "500m"
+                    memory: "128Mi"
+                ports:
+                  - containerPort: 8080
+                    name: http
+                    protocol: TCP
+	
+	Kubernetes shedules this in such a manner the pod is placed on a node where the 
+	minimun resource requirement is met
+
+	There is a maximum resoucrce requirement too
+	
+	when you set the maximun requirement you also set a minimum requirement the 
+	diffrence between two is when you do not set the maximum cap all the available
+	resource on the machine are given making sure minimum requirement is met meawhile
+	in other case only the minimum asked resource is allocate and can only be scaled 
+	to max cap limit
+
+	requests:
+	  cpu: "500m"
+          memory: "128Mi"
+	limits:
+	  cpu: "1000m"
+	  memory: "256Mi"
+ 
+	
+
+	
 
 ## Canary Deploments
 
