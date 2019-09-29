@@ -73,7 +73,7 @@
 
 	The kubectl configures the repsonse and extracts the human redable important data 
 	and presents that in more readble from. 
-	To get more detailed version you can use -o flag or other flags to get detailed data
+	To get more detailed version you can use -o wide flag or other flags to get detailed data
 	-o json or -o yaml will represent the returned object in the specified format
 
 	The kubectl uses Json path query laguage to extarct information from the returned 
@@ -272,8 +272,86 @@
 	  memory: "256Mi"
  
 	
+### Persistent Data with volume
+	Whenver a pod is deleted or a container restarts the data created by it is deleted
+	In certain use case you might require persistent volume
 
+#### Using Volumes with pods
+	you have to define all volumes in the pod and then inside the container you 
+	define which volume are to be used by the container. Not all containers are 
+	required to mount all volumes defined in the pod.
 	
+	apiVersion: v1
+	kind: Pod
+	metadata:
+	  name: kuard
+	spec:
+	  volumes:
+	    - name: "kuard-data"
+	      hostPath:
+	        path: "/var/lib/kuard"
+	  containers:
+	    - image: gcr.io/kuar-demo/kuard-amd64:1
+              name: kuard
+	      voumeMounts:
+	        - mountPath: "/data"
+	          name: "kaurd-data"
+	      ports:
+	        - contianerPort: 8080
+	          name: http
+	          protocol: TCP
+
+	There are many application of persistent volumes or shared volumes like the 
+	
+	often times you want the data a pod is uing to stay with the pod, even when 
+	the pod is restarted on different host machine. In that case you can use a 
+	remote network volume. There are many ways to mount volumes over a network
+	kubernetes has support for many protocols such as NFS, iSCSI etc
+
+	volumes:
+	  - name: "kuard-data"
+	    nfs:
+	      server: my.nfs.server.local
+	      path: "/exports"
+
+## Labels and anotation
+	The label are maily used to create goups and subgroups to classify pods in a 	
+	classifcation. Higly useful when the application gets scalled. The naming con
+	vention is a key value pair. The label have simple syntax the key has two parts
+	an optional prefix and a name. The porefix cab be a DNS subdomain with 253 character
+	the name can be 63 and values can be 63.
+	Key 			Value
+	acme.com/app-version 	1.0.0
+
+	applying label 
+	  $ kubectl run alpaca-prod \
+	  --image=gcr.io/kuar-demo/kuard-amd64:1 \
+	  --replicas=2 \
+	  --labels="ver=1,app=alpaca,env=prod"
+
+	$ kubectl get deployments --show-labels
+
+	you can also modify label after creation
+	
+	$ kubectl label deployments alpaca-test "canary=true"
+
+	you can use label slector to get certain pods
+	$ kubectl get pods --selector="ver=2"
+
+### Anotaioins
+	on the other hand  anotation are small notes kind of information stored in key 
+	value pair which can be become importand during deployment or hold value of 
+	certain info which is shared and very important.
+
+	... 
+	metadata
+	  annotaions:
+	    example.com/icon-url: "https://example.com/icon.png"
+	...
+
+## Delete all  deployment 
+	$ kubectl delete deplyments -all
+
 
 ## Canary Deploments
 
