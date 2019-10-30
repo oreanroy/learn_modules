@@ -434,5 +434,24 @@
 
 ## Config maps and secrtes 
 
+
+	These comes in handy when we want to reuse image in production, deployment or any other
+	such environment. At times the same image needs to be used across different applications
+	To achive this you also need to share the pass keys, environment variables. This is where
+	config maps and secrets come into play.
+	config maps are used to provide configuration information for workplace this can be fine 
+	grained infromation or composite value in form of file.
+
+	Henec you can use the same image and pod def across multiple apps by changing the config
+	provided by config maps or secretes.
+	
+	There are three main way in which config maps can be used:
+	
+	  >> to create a file system. The config file is loaded and a directory structure is 
+	     created based on the entries in the config map
+	  >> Enviroment variables :- to set enviroment variables
+	  >> commmand line argiment :- used to create dynamic commands for a container based config
+	     map
+
             
 
