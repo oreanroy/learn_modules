@@ -375,3 +375,64 @@
 ## creating bindings
 
 ## applying bindings  
+
+## Kubernetes Cluster
+	They all have kubeproxy running on them this kube proxy updates or writes IP tables rules 
+	such that any new service is created or deleted is taken in account. The api server 
+	oversees the kube proxy.
+
+## Replicaset
+	Replicaset is a cluster wide Pod manager ensuring the right type and number of pods are
+	running at all the time.
+	When we dfine Replicaset we define the specificaion and the number of pods to be created
+	Aditionaly we need to define a way to finding the pods the replicaset shoudl control.
+	That is where Reconcilation loops come into play.
+	The main concept behind reconcilation loop is current state, desired state, observed state
+	The reconcilaion loop runs constantly to make sure the current observed state is equal to 
+	the desired state.
+
+### Some Important characteristics of replicaset
+	Decoupling :- This is a theme that runs through kubernetes design. It is important to note
+	most of the core conecpts of kubernetes are modular with respect to each other and they 
+	are swapable and replaceable. That is even if Replicaset create pod but they are losely
+	coupled. That is they do not own the created pod and the oly way to identify them is 
+	through label queries and underneath they use the pod api to manage and maintain pods
+	This decoupling can give additioinal features.
+
+	>> Accepting existing containers :- a replicaset can be created to adopt an existing pod
+	>> Qurantining containers :- A pod might be misbehaving and just deleting it would 
+	   leave us with only exit logs but if we want to actully debug the pod we can remove it
+	   from the existing replicset by changing the label.
+
+	Things to keep in mind while desiging with replicasets
+	  >  Pods created by reolicasets are homogeneous
+	  >  Reoplicasets are dessigned to be stateless that is element created by replicasets are
+             intercahngeable. When replicaset is scaled down aby arbitary pod is selected for
+	     deletion.
+
+### Insepecting a replicaset
+	Kubectl describe kuard 
+	  Get replicaset from a pod
+	    kubectl get pods <pod-name> -o yaml
+	  Finding set pods from a replicaset
+	    kubectl get pods -l app = kuar
+
+### Scalling 
+	Imperative scalling and declarative scalling
+	  imperative	
+	    kubectl scale kuard --replicas=4
+`         declrative
+	    spec 
+	       replcias: 3
+
+### cooling period 
+
+	3 mins scalling up
+	5 mins scalling down
+	15 sec to check utilization
+
+
+## Config maps and secrtes 
+
+            
+
