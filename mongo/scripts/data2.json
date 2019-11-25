@@ -1,0 +1,5 @@
+MongoDB shell version v3.4.23
+connecting to: mongodb://127.0.0.1:27017/tyk_analytics
+MongoDB server version: 3.4.23
+2019-11-21T18:12:21.762+0530 E QUERY    [thread1] SyntaxError: missing ; before statement @script1.js:1:4
+failed to load: script1.js

@@ -1,0 +1,357 @@
+MongoDB shell version v3.4.23
+connecting to: mongodb://127.0.0.1:27017/tyk_analytics
+MongoDB server version: 3.4.23
+{
+	"_id" : ObjectId("5dd65fd12113a6e07b887b5b"),
+	"method" : "GET",
+	"host" : "5dd65895ce4c300014403726.mockapi.io",
+	"path" : "/",
+	"rawpath" : "/",
+	"contentlength" : NumberLong(0),
+	"useragent" : "",
+	"day" : 21,
+	"month" : 11,
+	"year" : 2019,
+	"hour" : 15,
+	"responsecode" : 200,
+	"apikey" : "00000000",
+	"timestamp" : ISODate("2019-11-21T09:58:35.882Z"),
+	"apiversion" : "Non Versioned",
+	"apiname" : "client-POC",
+	"apiid" : "083009d7e9a84ccb5cfc304da31e81ba",
+	"orgid" : "5dd6574177ca3b2b1f973674",
+	"oauthid" : "",
+	"requesttime" : NumberLong(1555),
+	"rawrequest" : "R0VUIC8gSFRUUC8xLjENCkhvc3Q6IGV4YW1wbGUuY29tDQpVc2VyLUFnZW50OiBHby1odHRwLWNsaWVudC8xLjENCg0K",
+	"rawresponse" : "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LUxlbmd0aDogMTM1DQpBY2Nlc3MtQ29udHJvbC1BbGxvdy1IZWFkZXJzOiBYLVJlcXVlc3RlZC1XaXRoLENvbnRlbnQtVHlwZSxDYWNoZS1Db250cm9sLGFjY2Vzc190b2tlbg0KQWNjZXNzLUNvbnRyb2wtQWxsb3ctTWV0aG9kczogR0VULFBVVCxQT1NULERFTEVURSxPUFRJT05TDQpBY2Nlc3MtQ29udHJvbC1BbGxvdy1PcmlnaW46ICoNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vanNvbg0KRGF0ZTogVGh1LCAyMSBOb3YgMjAxOSAwOTo1ODozNSBHTVQNCkV0YWc6ICI4NDEwNzQ2NjMiDQpTZXJ2ZXI6IENvd2JveQ0KVmFyeTogQWNjZXB0LUVuY29kaW5nDQpWaWE6IDEuMSB2ZWd1cg0KWC1Qb3dlcmVkLUJ5OiBFeHByZXNzDQpYLVJhdGVsaW1pdC1MaW1pdDogMA0KWC1SYXRlbGltaXQtUmVtYWluaW5nOiAwDQpYLVJhdGVsaW1pdC1SZXNldDogMA0KDQpbeyJuYW1lIjoic3RhcmsiLCJhZ2UiOjMyLCJ0ZWFtIjoiQXVzdHJhbGlhIn0seyJuYW1lIjoiS29obGkiLCJhZ2UiOjMwLCJ0ZWFtIjoiSW5kaWEifSx7Im5hbWUiOiJzdGV5biIsImFnZSI6MzUsInRlYW0iOiJTb3V0aCBBZnJpY2EifV0=",
+	"ipaddress" : "192.0.2.1",
+	"geo" : {
+		"country" : {
+			"isocode" : ""
+		},
+		"city" : {
+			"geonameid" : 0,
+			"names" : {
+				
+			}
+		},
+		"location" : {
+			"latitude" : 0,
+			"longitude" : 0,
+			"timezone" : ""
+		}
+	},
+	"network" : {
+		"openconnections" : NumberLong(0),
+		"closedconnection" : NumberLong(0),
+		"bytesin" : NumberLong(0),
+		"bytesout" : NumberLong(0)
+	},
+	"latency" : {
+		"total" : NumberLong(1555),
+		"upstream" : NumberLong(1552)
+	},
+	"tags" : [
+		"key-00000000",
+		"org-5dd6574177ca3b2b1f973674",
+		"api-083009d7e9a84ccb5cfc304da31e81ba"
+	],
+	"alias" : "",
+	"trackpath" : false,
+	"expireAt" : ISODate("2119-10-28T09:58:35.882Z")
+}
+{
+	"_id" : ObjectId("5dd65ff92113a6e07b887b7b"),
+	"method" : "GET",
+	"host" : "5dd65895ce4c300014403726.mockapi.io",
+	"path" : "/",
+	"rawpath" : "/",
+	"contentlength" : NumberLong(0),
+	"useragent" : "",
+	"day" : 21,
+	"month" : 11,
+	"year" : 2019,
+	"hour" : 15,
+	"responsecode" : 200,
+	"apikey" : "00000000",
+	"timestamp" : ISODate("2019-11-21T09:59:11.186Z"),
+	"apiversion" : "Non Versioned",
+	"apiname" : "client-POC",
+	"apiid" : "083009d7e9a84ccb5cfc304da31e81ba",
+	"orgid" : "5dd6574177ca3b2b1f973674",
+	"oauthid" : "",
+	"requesttime" : NumberLong(1225),
+	"rawrequest" : "R0VUIC8gSFRUUC8xLjENCkhvc3Q6IGV4YW1wbGUuY29tDQpVc2VyLUFnZW50OiBHby1odHRwLWNsaWVudC8xLjENCg0K",
+	"rawresponse" : "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LUxlbmd0aDogMTM1DQpBY2Nlc3MtQ29udHJvbC1BbGxvdy1IZWFkZXJzOiBYLVJlcXVlc3RlZC1XaXRoLENvbnRlbnQtVHlwZSxDYWNoZS1Db250cm9sLGFjY2Vzc190b2tlbg0KQWNjZXNzLUNvbnRyb2wtQWxsb3ctTWV0aG9kczogR0VULFBVVCxQT1NULERFTEVURSxPUFRJT05TDQpBY2Nlc3MtQ29udHJvbC1BbGxvdy1PcmlnaW46ICoNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vanNvbg0KRGF0ZTogVGh1LCAyMSBOb3YgMjAxOSAwOTo1OToxMCBHTVQNCkV0YWc6ICI4NDEwNzQ2NjMiDQpTZXJ2ZXI6IENvd2JveQ0KVmFyeTogQWNjZXB0LUVuY29kaW5nDQpWaWE6IDEuMSB2ZWd1cg0KWC1Qb3dlcmVkLUJ5OiBFeHByZXNzDQpYLVJhdGVsaW1pdC1MaW1pdDogMA0KWC1SYXRlbGltaXQtUmVtYWluaW5nOiAwDQpYLVJhdGVsaW1pdC1SZXNldDogMA0KDQpbeyJuYW1lIjoic3RhcmsiLCJhZ2UiOjMyLCJ0ZWFtIjoiQXVzdHJhbGlhIn0seyJuYW1lIjoiS29obGkiLCJhZ2UiOjMwLCJ0ZWFtIjoiSW5kaWEifSx7Im5hbWUiOiJzdGV5biIsImFnZSI6MzUsInRlYW0iOiJTb3V0aCBBZnJpY2EifV0=",
+	"ipaddress" : "192.0.2.1",
+	"geo" : {
+		"country" : {
+			"isocode" : ""
+		},
+		"city" : {
+			"geonameid" : 0,
+			"names" : {
+				
+			}
+		},
+		"location" : {
+			"latitude" : 0,
+			"longitude" : 0,
+			"timezone" : ""
+		}
+	},
+	"network" : {
+		"openconnections" : NumberLong(0),
+		"closedconnection" : NumberLong(0),
+		"bytesin" : NumberLong(0),
+		"bytesout" : NumberLong(0)
+	},
+	"latency" : {
+		"total" : NumberLong(1225),
+		"upstream" : NumberLong(1225)
+	},
+	"tags" : [
+		"key-00000000",
+		"org-5dd6574177ca3b2b1f973674",
+		"api-083009d7e9a84ccb5cfc304da31e81ba"
+	],
+	"alias" : "",
+	"trackpath" : false,
+	"expireAt" : ISODate("2119-10-28T09:59:11.186Z")
+}
+{
+	"_id" : ObjectId("5dd660212113a6e07b887b92"),
+	"method" : "GET",
+	"host" : "5dd65895ce4c300014403726.mockapi.io",
+	"path" : "/",
+	"rawpath" : "/",
+	"contentlength" : NumberLong(0),
+	"useragent" : "",
+	"day" : 21,
+	"month" : 11,
+	"year" : 2019,
+	"hour" : 15,
+	"responsecode" : 200,
+	"apikey" : "00000000",
+	"timestamp" : ISODate("2019-11-21T09:59:55.634Z"),
+	"apiversion" : "Non Versioned",
+	"apiname" : "client-POC",
+	"apiid" : "083009d7e9a84ccb5cfc304da31e81ba",
+	"orgid" : "5dd6574177ca3b2b1f973674",
+	"oauthid" : "",
+	"requesttime" : NumberLong(1199),
+	"rawrequest" : "R0VUIC8gSFRUUC8xLjENCkhvc3Q6IGV4YW1wbGUuY29tDQpVc2VyLUFnZW50OiBHby1odHRwLWNsaWVudC8xLjENCg0K",
+	"rawresponse" : "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LUxlbmd0aDogMTM1DQpBY2Nlc3MtQ29udHJvbC1BbGxvdy1IZWFkZXJzOiBYLVJlcXVlc3RlZC1XaXRoLENvbnRlbnQtVHlwZSxDYWNoZS1Db250cm9sLGFjY2Vzc190b2tlbg0KQWNjZXNzLUNvbnRyb2wtQWxsb3ctTWV0aG9kczogR0VULFBVVCxQT1NULERFTEVURSxPUFRJT05TDQpBY2Nlc3MtQ29udHJvbC1BbGxvdy1PcmlnaW46ICoNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vanNvbg0KRGF0ZTogVGh1LCAyMSBOb3YgMjAxOSAwOTo1OTo1NSBHTVQNCkV0YWc6ICI4NDEwNzQ2NjMiDQpTZXJ2ZXI6IENvd2JveQ0KVmFyeTogQWNjZXB0LUVuY29kaW5nDQpWaWE6IDEuMSB2ZWd1cg0KWC1Qb3dlcmVkLUJ5OiBFeHByZXNzDQpYLVJhdGVsaW1pdC1MaW1pdDogMA0KWC1SYXRlbGltaXQtUmVtYWluaW5nOiAwDQpYLVJhdGVsaW1pdC1SZXNldDogMA0KDQpbeyJuYW1lIjoic3RhcmsiLCJhZ2UiOjMyLCJ0ZWFtIjoiQXVzdHJhbGlhIn0seyJuYW1lIjoiS29obGkiLCJhZ2UiOjMwLCJ0ZWFtIjoiSW5kaWEifSx7Im5hbWUiOiJzdGV5biIsImFnZSI6MzUsInRlYW0iOiJTb3V0aCBBZnJpY2EifV0=",
+	"ipaddress" : "192.0.2.1",
+	"geo" : {
+		"country" : {
+			"isocode" : ""
+		},
+		"city" : {
+			"geonameid" : 0,
+			"names" : {
+				
+			}
+		},
+		"location" : {
+			"latitude" : 0,
+			"longitude" : 0,
+			"timezone" : ""
+		}
+	},
+	"network" : {
+		"openconnections" : NumberLong(0),
+		"closedconnection" : NumberLong(0),
+		"bytesin" : NumberLong(0),
+		"bytesout" : NumberLong(0)
+	},
+	"latency" : {
+		"total" : NumberLong(1199),
+		"upstream" : NumberLong(1198)
+	},
+	"tags" : [
+		"key-00000000",
+		"org-5dd6574177ca3b2b1f973674",
+		"api-083009d7e9a84ccb5cfc304da31e81ba"
+	],
+	"alias" : "",
+	"trackpath" : false,
+	"expireAt" : ISODate("2119-10-28T09:59:55.634Z")
+}
+{
+	"_id" : ObjectId("5dd660852113a6e07b887bc5"),
+	"method" : "GET",
+	"host" : "5dd65895ce4c300014403726.mockapi.io",
+	"path" : "/test",
+	"rawpath" : "/test",
+	"contentlength" : NumberLong(0),
+	"useragent" : "",
+	"day" : 21,
+	"month" : 11,
+	"year" : 2019,
+	"hour" : 15,
+	"responsecode" : 404,
+	"apikey" : "00000000",
+	"timestamp" : ISODate("2019-11-21T10:01:35.042Z"),
+	"apiversion" : "Non Versioned",
+	"apiname" : "client-POC",
+	"apiid" : "083009d7e9a84ccb5cfc304da31e81ba",
+	"orgid" : "5dd6574177ca3b2b1f973674",
+	"oauthid" : "",
+	"requesttime" : NumberLong(1925),
+	"rawrequest" : "R0VUIC90ZXN0IEhUVFAvMS4xDQpIb3N0OiBleGFtcGxlLmNvbQ0KVXNlci1BZ2VudDogR28taHR0cC1jbGllbnQvMS4xDQoNCg==",
+	"rawresponse" : "SFRUUC8xLjEgNDA0IE5vdCBGb3VuZA0KQ29udGVudC1MZW5ndGg6IDExDQpBY2Nlc3MtQ29udHJvbC1BbGxvdy1IZWFkZXJzOiBYLVJlcXVlc3RlZC1XaXRoLENvbnRlbnQtVHlwZSxDYWNoZS1Db250cm9sLGFjY2Vzc190b2tlbg0KQWNjZXNzLUNvbnRyb2wtQWxsb3ctTWV0aG9kczogR0VULFBVVCxQT1NULERFTEVURSxPUFRJT05TDQpBY2Nlc3MtQ29udHJvbC1BbGxvdy1PcmlnaW46ICoNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vanNvbg0KRGF0ZTogVGh1LCAyMSBOb3YgMjAxOSAxMDowMTozNCBHTVQNCkV0YWc6ICIxNTkyNzI0ODUwIg0KU2VydmVyOiBDb3dib3kNClZhcnk6IEFjY2VwdC1FbmNvZGluZw0KVmlhOiAxLjEgdmVndXINClgtUG93ZXJlZC1CeTogRXhwcmVzcw0KWC1SYXRlbGltaXQtTGltaXQ6IDANClgtUmF0ZWxpbWl0LVJlbWFpbmluZzogMA0KWC1SYXRlbGltaXQtUmVzZXQ6IDANCg0KIk5vdCBmb3VuZCI=",
+	"ipaddress" : "192.0.2.1",
+	"geo" : {
+		"country" : {
+			"isocode" : ""
+		},
+		"city" : {
+			"geonameid" : 0,
+			"names" : {
+				
+			}
+		},
+		"location" : {
+			"latitude" : 0,
+			"longitude" : 0,
+			"timezone" : ""
+		}
+	},
+	"network" : {
+		"openconnections" : NumberLong(0),
+		"closedconnection" : NumberLong(0),
+		"bytesin" : NumberLong(0),
+		"bytesout" : NumberLong(0)
+	},
+	"latency" : {
+		"total" : NumberLong(1925),
+		"upstream" : NumberLong(1925)
+	},
+	"tags" : [
+		"key-00000000",
+		"org-5dd6574177ca3b2b1f973674",
+		"api-083009d7e9a84ccb5cfc304da31e81ba"
+	],
+	"alias" : "",
+	"trackpath" : false,
+	"expireAt" : ISODate("2119-10-28T10:01:35.042Z")
+}
+{
+	"_id" : ObjectId("5dd660cb2113a6e07b887be8"),
+	"method" : "GET",
+	"host" : "5dd65895ce4c300014403726.mockapi.io",
+	"path" : "/",
+	"rawpath" : "/",
+	"contentlength" : NumberLong(0),
+	"useragent" : "",
+	"day" : 21,
+	"month" : 11,
+	"year" : 2019,
+	"hour" : 15,
+	"responsecode" : 200,
+	"apikey" : "00000000",
+	"timestamp" : ISODate("2019-11-21T10:02:44.337Z"),
+	"apiversion" : "Non Versioned",
+	"apiname" : "client-POC",
+	"apiid" : "083009d7e9a84ccb5cfc304da31e81ba",
+	"orgid" : "5dd6574177ca3b2b1f973674",
+	"oauthid" : "",
+	"requesttime" : NumberLong(1382),
+	"rawrequest" : "R0VUIC8gSFRUUC8xLjENCkhvc3Q6IGV4YW1wbGUuY29tDQpVc2VyLUFnZW50OiBHby1odHRwLWNsaWVudC8xLjENCg0K",
+	"rawresponse" : "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LUxlbmd0aDogMTM1DQpBY2Nlc3MtQ29udHJvbC1BbGxvdy1IZWFkZXJzOiBYLVJlcXVlc3RlZC1XaXRoLENvbnRlbnQtVHlwZSxDYWNoZS1Db250cm9sLGFjY2Vzc190b2tlbg0KQWNjZXNzLUNvbnRyb2wtQWxsb3ctTWV0aG9kczogR0VULFBVVCxQT1NULERFTEVURSxPUFRJT05TDQpBY2Nlc3MtQ29udHJvbC1BbGxvdy1PcmlnaW46ICoNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vanNvbg0KRGF0ZTogVGh1LCAyMSBOb3YgMjAxOSAxMDowMjo0MyBHTVQNCkV0YWc6ICI4NDEwNzQ2NjMiDQpTZXJ2ZXI6IENvd2JveQ0KVmFyeTogQWNjZXB0LUVuY29kaW5nDQpWaWE6IDEuMSB2ZWd1cg0KWC1Qb3dlcmVkLUJ5OiBFeHByZXNzDQpYLVJhdGVsaW1pdC1MaW1pdDogMA0KWC1SYXRlbGltaXQtUmVtYWluaW5nOiAwDQpYLVJhdGVsaW1pdC1SZXNldDogMA0KDQpbeyJuYW1lIjoic3RhcmsiLCJhZ2UiOjMyLCJ0ZWFtIjoiQXVzdHJhbGlhIn0seyJuYW1lIjoiS29obGkiLCJhZ2UiOjMwLCJ0ZWFtIjoiSW5kaWEifSx7Im5hbWUiOiJzdGV5biIsImFnZSI6MzUsInRlYW0iOiJTb3V0aCBBZnJpY2EifV0=",
+	"ipaddress" : "192.0.2.1",
+	"geo" : {
+		"country" : {
+			"isocode" : ""
+		},
+		"city" : {
+			"geonameid" : 0,
+			"names" : {
+				
+			}
+		},
+		"location" : {
+			"latitude" : 0,
+			"longitude" : 0,
+			"timezone" : ""
+		}
+	},
+	"network" : {
+		"openconnections" : NumberLong(0),
+		"closedconnection" : NumberLong(0),
+		"bytesin" : NumberLong(0),
+		"bytesout" : NumberLong(0)
+	},
+	"latency" : {
+		"total" : NumberLong(1382),
+		"upstream" : NumberLong(1382)
+	},
+	"tags" : [
+		"key-00000000",
+		"org-5dd6574177ca3b2b1f973674",
+		"api-083009d7e9a84ccb5cfc304da31e81ba"
+	],
+	"alias" : "",
+	"trackpath" : false,
+	"expireAt" : ISODate("2119-10-28T10:02:44.337Z")
+}
+{
+	"_id" : ObjectId("5dd673632113a6e07b888388"),
+	"method" : "GET",
+	"host" : "5dd65895ce4c300014403726.mockapi.io",
+	"path" : "/",
+	"rawpath" : "/",
+	"contentlength" : NumberLong(0),
+	"useragent" : "",
+	"day" : 21,
+	"month" : 11,
+	"year" : 2019,
+	"hour" : 16,
+	"responsecode" : 200,
+	"apikey" : "00000000",
+	"timestamp" : ISODate("2019-11-21T11:22:03.520Z"),
+	"apiversion" : "Non Versioned",
+	"apiname" : "client-POC",
+	"apiid" : "083009d7e9a84ccb5cfc304da31e81ba",
+	"orgid" : "5dd6574177ca3b2b1f973674",
+	"oauthid" : "",
+	"requesttime" : NumberLong(1445),
+	"rawrequest" : "R0VUIC8gSFRUUC8xLjENCkhvc3Q6IGV4YW1wbGUuY29tDQpVc2VyLUFnZW50OiBHby1odHRwLWNsaWVudC8xLjENCg0K",
+	"rawresponse" : "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LUxlbmd0aDogMTM1DQpBY2Nlc3MtQ29udHJvbC1BbGxvdy1IZWFkZXJzOiBYLVJlcXVlc3RlZC1XaXRoLENvbnRlbnQtVHlwZSxDYWNoZS1Db250cm9sLGFjY2Vzc190b2tlbg0KQWNjZXNzLUNvbnRyb2wtQWxsb3ctTWV0aG9kczogR0VULFBVVCxQT1NULERFTEVURSxPUFRJT05TDQpBY2Nlc3MtQ29udHJvbC1BbGxvdy1PcmlnaW46ICoNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vanNvbg0KRGF0ZTogVGh1LCAyMSBOb3YgMjAxOSAxMToyMjowMyBHTVQNCkV0YWc6ICI4NDEwNzQ2NjMiDQpTZXJ2ZXI6IENvd2JveQ0KVmFyeTogQWNjZXB0LUVuY29kaW5nDQpWaWE6IDEuMSB2ZWd1cg0KWC1Qb3dlcmVkLUJ5OiBFeHByZXNzDQpYLVJhdGVsaW1pdC1MaW1pdDogMA0KWC1SYXRlbGltaXQtUmVtYWluaW5nOiAwDQpYLVJhdGVsaW1pdC1SZXNldDogMA0KDQpbeyJuYW1lIjoic3RhcmsiLCJhZ2UiOjMyLCJ0ZWFtIjoiQXVzdHJhbGlhIn0seyJuYW1lIjoiS29obGkiLCJhZ2UiOjMwLCJ0ZWFtIjoiSW5kaWEifSx7Im5hbWUiOiJzdGV5biIsImFnZSI6MzUsInRlYW0iOiJTb3V0aCBBZnJpY2EifV0=",
+	"ipaddress" : "192.0.2.1",
+	"geo" : {
+		"country" : {
+			"isocode" : ""
+		},
+		"city" : {
+			"geonameid" : 0,
+			"names" : {
+				
+			}
+		},
+		"location" : {
+			"latitude" : 0,
+			"longitude" : 0,
+			"timezone" : ""
+		}
+	},
+	"network" : {
+		"openconnections" : NumberLong(0),
+		"closedconnection" : NumberLong(0),
+		"bytesin" : NumberLong(0),
+		"bytesout" : NumberLong(0)
+	},
+	"latency" : {
+		"total" : NumberLong(1445),
+		"upstream" : NumberLong(1445)
+	},
+	"tags" : [
+		"key-00000000",
+		"org-5dd6574177ca3b2b1f973674",
+		"api-083009d7e9a84ccb5cfc304da31e81ba"
+	],
+	"alias" : "",
+	"trackpath" : false,
+	"expireAt" : ISODate("2119-10-28T11:22:03.520Z")
+}
