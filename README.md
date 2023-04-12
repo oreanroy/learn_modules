@@ -1,5 +1,6 @@
 ### This contains different resources to learn different technologies.
-	Python
+
+Python
 	>>> Learn python the hard way 
 	>>> The concepts of oops 
 	>>> Things which are unique to pyhton decorators etc
